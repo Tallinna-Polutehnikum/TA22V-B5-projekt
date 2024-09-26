@@ -13,11 +13,7 @@
   "description": "",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "events": "^3.3.0",
     "express": "^4.21.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-reconciler": "^0.29.2",
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
