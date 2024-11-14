@@ -8,3 +8,12 @@
 https://jwt.io/
 anodisJS: https://docs.adonisjs.com/guides/preface/introduction
 https://github.com/yii2mod/yii2-rbac
+
+
+
+
+____________________________________________________________________
+to start
+    cd client 
+    npm install react-scripts
+    npm start
