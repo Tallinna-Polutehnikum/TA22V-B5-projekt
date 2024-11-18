@@ -4,3 +4,15 @@ find out w repeats every time.
     cd client 
     npm install react-scripts
     npm start
+
+18-11 
+узнать про модули jira ⇩⇩ (см през.) 
+https://google.com/search?q=zephyr+for+jira+что
+https://google.com/search?q=xray+for+jira+что
+
+тестировать можно линки юрл странички
+т.е. добавить контент в homepage и после см. ниже. v
+
+Создайте файл теста: Обычно тестовые файлы имеют суффикс .test.js или .spec.js. Например, если у вас есть компонент MyComponent.js, создайте файл MyComponent.test.js в той же директории.
+Напишите тесты: Внутри вашего файла теста вы можете использовать Jest и React Testing Library для написания тестов. Пример простого теста:
+https://www.perplexity.ai/search/privet-u-menia-proekt-v-vsc-na-qc45b6eNRoq190zmsurrlw
