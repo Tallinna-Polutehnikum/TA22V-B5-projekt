@@ -1,42 +1,35 @@
-import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import MoviePage from './pages/MoviePage';
+import CheckoutPage from './pages/CheckoutPage';
+
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
-  return (
+    return (
+        <Router>
+            <Header />
+            <nav>
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/checkout">Movies</Link></li>
+                    <li><Link to="/movie/:id">Movies</Link></li>
+                </ul>
+            </nav>
 
-    <div className="App"> 
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/movie/:id" element={<MoviePage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+            </Routes>
 
-      <a href="https://reactjs.org">Learn React</a>
-    </div>
-  );
+            <Footer />
+        </Router>
+    );
 }
 
 export default App;
-
-
-  //ERVIN CONTENT
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import HomePage from './pages/HomePage/HomePage';
-// import MoviePage from './pages/MoviePage/MoviePage';
-// import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
-
-// import Header from './components/Header/header';
-// import Footer from './components/Footer/footer';
-
-// function App() {
-//   return (
-//     <div classname="wraper">
-//         <Header />
-        
-//       {/* на_потом
-//       <Switch> 
-//         <Route path="/" exact component={HomePage} />
-//         <Route path="/movie/:id" component={MoviePage} />
-//         <Route path="/checkout" component={CheckoutPage} />
-//       </Switch> */}
-//         <Footer />
-//     </div>
-//   )
-// }
-
-// export default App;
