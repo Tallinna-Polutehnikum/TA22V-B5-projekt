@@ -1,0 +1,18 @@
+.App-header {
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+/* If you want to change the styles for navigation links */
+.nav-link {
+    font-weight: bold; /* Bold font for navigation links */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.nav-link:hover {
+    color: #2aa;
+}

@@ -18,5 +18,6 @@ find out w repeats every time.
     https://www.perplexity.ai/search/privet-u-menia-proekt-v-vsc-na-qc45b6eNRoq190zmsurrlw
      
 20-11
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
     cd..
     npm install react-router-dom

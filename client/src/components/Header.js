@@ -1,23 +1,31 @@
-import React from 'react'
+import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
 import logo from '../logo.svg';
-
+import './Header.css';
 
 function Header() {
-  return (
-    <header className="App-header">
-      <div>
-        <img src={logo} className="App-logo" alt="logo" />
-        <span classname="logo">Apollo prj</span>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/movie">Movies</a></li>
-          <li><a href="/checkout">Cart</a></li>
-        </ul>
-      </nav>
-    </header>
-  );
+    return (
+        <Navbar bg="dark" variant="dark" expand="lg">
+            <Navbar.Brand href="/">
+                <img
+                    src={logo}
+                    width="40" height="40"
+                    className="d-inline-block align-top"
+                    alt="logo"
+                />
+                {' Apollo prj'}
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="ml-auto">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/about">About Us</Nav.Link>
+                    <Nav.Link href="/checkout">Checkout</Nav.Link>
+                    <Nav.Link href="/movie/:id">Movies</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+    );
 }
 
 export default Header;

@@ -15,8 +15,6 @@ https://github.com/yii2mod/yii2-rbac
 ____________________________________________________________________
 to start
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass   
-    cd..
-    npm install react-router-dom
     cd client 
-    npm install react-scripts
+    npm install
     npm start

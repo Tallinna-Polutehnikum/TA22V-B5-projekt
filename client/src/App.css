@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+html, body {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto; /* Прикрепляет футер к низу страницы */
+  color: red;
+}
