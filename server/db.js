@@ -1,14 +1,19 @@
-import {Sequelize} from 'sequelize';
+import { Sequelize } from 'sequelize';
 
-console.log('DB_HOST:', process.env.DB_HOST);
-console.log('DB_USER:', process.env.DB_USER);
-console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
-console.log('DB_NAME:', process.env.DB_NAME);
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const sequelize = new Sequelize
-(
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+
+// dotenv.config({ path: path.resolve(__dirname, '.env') });
+dotenv.config({ path: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '.env') });
+
+
+const sequelize = new Sequelize(
     process.env.DB_NAME,
-    process.env.DB_USERNAME,
+    process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
         dialect: 'mysql',
@@ -16,4 +21,5 @@ const sequelize = new Sequelize
         port: process.env.DB_PORT || 3306
     }
 );
+
 export default sequelize;
