@@ -28,6 +28,11 @@
   color: #61dafb;
 }
 
+.main {
+  min-height: 90vh;
+  padding: 20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,19 +40,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-html, body {
-  height: 100%;
-}
-
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-footer {
-  margin-top: auto; /* Прикрепляет футер к низу страницы */
-  color: red;
 }
