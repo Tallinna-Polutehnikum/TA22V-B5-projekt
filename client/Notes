@@ -31,4 +31,7 @@ find out w repeats every time.
 
     https://www.w3schools.com/REACT/DEFAULT.ASP
     https://www.codecademy.com/article/how-to-create-a-react-app
-    https://create-react-app.dev/docs/getting-started/
+    https://create-react-app.dev/docs/getting-started/ 
+	
+	карусель. доб. чтобы не было кнопок переключения, а "кнопка" была в виде затемнения когда наводишся на самые левые или самые правые 50px
+	
