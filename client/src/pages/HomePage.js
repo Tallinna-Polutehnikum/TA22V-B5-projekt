@@ -8,6 +8,7 @@ const HomePage = () => {
         'https://picsum.photos/id/1012/1200/200',
         'https://picsum.photos/id/1001/1200/200'
     ];
+    
     return (
         <div>
             <h1>Welcome to My Movie App</h1>

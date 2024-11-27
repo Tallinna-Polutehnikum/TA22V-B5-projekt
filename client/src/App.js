@@ -6,7 +6,6 @@ import MoviePage from './pages/MoviePage';
 import CheckoutPage from './pages/CheckoutPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Carousel from './components/Carousel';
 import './App.css';
 
 function App() {
@@ -21,6 +20,7 @@ function App() {
                     <Route path="/movie/:id" element={<MoviePage />} />
                     <Route path="/checkout" element={<CheckoutPage />} />
                 </Routes>
+                <a href="https://reactjs.org">Learn React</a>
             </main>
             <Footer />
         </Router>

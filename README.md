@@ -17,4 +17,5 @@ to start
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass   
     cd client 
     npm install
+    npm test
     npm start
