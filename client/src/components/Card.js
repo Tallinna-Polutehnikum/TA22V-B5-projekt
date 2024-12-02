@@ -1,4 +1,3 @@
-// import Button from 'react-bootstrap/Button';
 // import Card from 'react-bootstrap/Card';
 // import Placeholder from 'react-bootstrap/Placeholder';
 
@@ -34,9 +33,7 @@
 // }
 
 // export default CardExample;
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Placeholder from 'react-bootstrap/Placeholder';
 
 const CardExample = ({ images }) => {
   return (
@@ -45,11 +42,12 @@ const CardExample = ({ images }) => {
         <Card key={index} style={{ width: '18rem' }}>
           <Card.Img variant="top" src={image} />
           <Card.Body>
-            <Card.Title>Card Title {index + 1}</Card.Title>
+            <Card.Title>
+              <p><a href="#" class="link-body-emphasis link-underline-opacity-0-hover">Card Title {index + 1}</a></p>
+            </Card.Title>
             <Card.Text>
               card text for image {index + 1}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
           </Card.Body>
         </Card>
       ))}
