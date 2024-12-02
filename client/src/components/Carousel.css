@@ -1,0 +1,8 @@
+.carousel-indicators {
+    position: sticky;
+}
+
+main div#carouselExample .carousel-indicators button[type="button"] {
+    width: 17px;
+    background-color: #668;
+}

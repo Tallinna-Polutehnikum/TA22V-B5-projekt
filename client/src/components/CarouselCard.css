@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #eee;
+    color: #111;
+}
+
+.CarouselCard {
+    width: 100%; /* Width of the marquee area */
+    height: 20vh; /* Height of the marquee area */
+    overflow: hidden; /* Hide elements that go beyond the boundaries */
+    position: relative;
+}
+
+.CarouselCard .CarouselCard-content:hover li{
+    animation-play-state: paused;
+}
+
+.CarouselCard-content {
+    display: flex; /* Use flexbox for horizontal arrangement of items */
+    animation: CarouselCard 50s linear infinite; /* Animation for scrolling */
+}
+
+.CarouselCard-content li {
+    list-style: none; /* Remove list markers */
+}
+
+/* Keyframes for scrolling animation */
+@keyframes CarouselCard {
+    0% { transform: translateX(0); } /* Start position (first element visible) */
+    100% { transform: translateX(-50%); } /* End position (half of the total width) */
+}
