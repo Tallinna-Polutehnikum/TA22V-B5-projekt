@@ -19,3 +19,10 @@ to start
     npm install
     npm test
     npm start
+
+
+Cypress tests
+    cd client
+    npm install
+    Terminal 1: npm start
+    Terminal 2: npm run cypress:open (UI mode) OR npm run cypress:run (headless mode)
