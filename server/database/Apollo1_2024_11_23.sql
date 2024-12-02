@@ -128,6 +128,25 @@ CREATE TABLE `address_type`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `type` TEXT(255) NOT NULL
 );
+create table `hall` (
+	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `address_id`  BIGINT UNSIGNED NOT NULL,
+    `title` TEXT
+);
+alter table
+`hall` add constraint `hall_address_id_foreign` foreign key(`address_id`) references `address`(`id`);
+create table `seat` (
+	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `hall_id` BIGINT UNSIGNED NOT NULL,
+    `type`  BIGINT UNSIGNED NOT NULL
+    );
+alter table
+`seat` add constraint `seat_type_id_foreign` foreign key(`type`) references `seat_type`(`id`);
+create table `seat_type`(
+	 `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     `type` TEXT NOT NULL
+);
+
 CREATE TABLE `city` (
 	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` TEXT(255) NOT NULL
