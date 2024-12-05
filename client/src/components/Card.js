@@ -1,23 +1,29 @@
 import Card from 'react-bootstrap/Card';
 
-const CardExample = ({ images }) => {
-  return (
-    <div className="d-flex justify-content-around">
-      {images.map((image, index) => (
-        <Card key={index} style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={image} />
+const CardExample = ({ cardData }) => {
+return (
+  <div className="d-flex justify-content-around">
+    {cardData && cardData.length > 0 ? (
+      cardData.map((data, index) => (
+        <Card key={index} style={{ width: '18rem' }} class='mx-0 mx-sm-2'>
+          <Card.Img variant="top" src={data.image} />
           <Card.Body>
             <Card.Title>
-              <p><a href="#" class="link-body-emphasis link-underline-opacity-0-hover">Card Title {index + 1}</a></p>
+              <p>
+                <a href="#" className="link-body-emphasis link-underline-opacity-0-hover">
+                  {data.title}
+                </a>
+              </p>
             </Card.Title>
-            <Card.Text>
-              card text for image {index + 1}
-            </Card.Text>
+            <Card.Text>{data.description}</Card.Text>
           </Card.Body>
-        </Card>
-      ))}
-    </div>
-  );
+      </Card>
+      ))
+    ) : (
+      <p>Loading...</p> // not corupts anymore if waiting data
+    )}
+  </div>
+);
 }
 
 export default CardExample;

@@ -7,10 +7,10 @@ import CardExample from '../components/Card';
 
 const HomePage = () => {
     const c1Images = [
-        'https://picsum.photos/id/1006/1200/200',
-        'https://picsum.photos/id/1018/1200/200',
-        'https://picsum.photos/id/1012/1200/200',
-        'https://picsum.photos/id/1001/1200/200'
+        'https://picsum.photos/id/1006/1200/400',
+        'https://picsum.photos/id/1018/1200/400',
+        'https://picsum.photos/id/1012/1200/400',
+        'https://picsum.photos/id/1001/1200/400'
     ];
     const cardImages = [
         'https://picsum.photos/id/1012/300/200',

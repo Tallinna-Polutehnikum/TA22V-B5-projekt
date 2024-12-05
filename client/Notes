@@ -35,5 +35,10 @@ find out w repeats every time.
 	
 	карусель. доб. чтобы не было кнопок переключения, а "кнопка" была в виде затемнения когда наводишся на самые левые или самые правые 50px
 	
-02-11
+02-12
     CarouselCard.js- доб. фабрику элементов. Прокрутку по элементу за раз. Стрелки к прокрутке.
+    class='mx-0 mx-sm-2' >sm=2rem
+
+05-12
+    fix carousel height. image should fit into.
+    overflow: hidden; /*p? Hide elements that go beyond the boundaries */ 
