@@ -1,9 +1,9 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class city extends Model {
+export default class City extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('city', {
+  return super.init({
     id: {
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
@@ -15,6 +15,7 @@ export default class city extends Model {
       allowNull: false
     }
   }, {
+    sequelize,
     tableName: 'city',
     timestamps: false,
     indexes: [

@@ -1,9 +1,9 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class addressType extends Model {
+export default class AddressType extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('addressType', {
+  return super.init({
     id: {
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
@@ -15,6 +15,7 @@ export default class addressType extends Model {
       allowNull: false
     }
   }, {
+    sequelize,
     tableName: 'address_type',
     timestamps: false,
     indexes: [

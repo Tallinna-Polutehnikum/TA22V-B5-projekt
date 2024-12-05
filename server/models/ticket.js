@@ -1,28 +1,30 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class ticket extends Model {
+export default class Ticket extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('ticket', {
+  return super.init({
     id: {
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
-    session_id: {
+    sessionId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'session',
         key: 'id'
-      }
+      },
+      field: 'session_id'
     },
     price: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false
     }
   }, {
+    sequelize,
     tableName: 'ticket',
     timestamps: false,
     indexes: [

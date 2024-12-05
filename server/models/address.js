@@ -1,22 +1,23 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class address extends Model {
+export default class Address extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('address', {
+  return super.init({
     id: {
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
-    type_id: {
+    typeId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'address_type',
         key: 'id'
-      }
+      },
+      field: 'type_id'
     },
     address: {
       type: DataTypes.TEXT,
@@ -30,17 +31,19 @@ export default class address extends Model {
       type: DataTypes.TEXT,
       allowNull: true
     },
-    city_id: {
+    cityId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'city',
         key: 'id'
-      }
+      },
+      field: 'city_id'
     },
-    postale_code: {
+    postaleCode: {
       type: DataTypes.STRING(10),
-      allowNull: true
+      allowNull: true,
+      field: 'postale_code'
     },
     phone: {
       type: DataTypes.BIGINT.UNSIGNED,
@@ -51,6 +54,7 @@ export default class address extends Model {
       allowNull: false
     }
   }, {
+    sequelize,
     tableName: 'address',
     timestamps: false,
     indexes: [

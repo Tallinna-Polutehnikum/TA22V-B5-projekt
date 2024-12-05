@@ -1,24 +1,27 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class actor extends Model {
+export default class Actor extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('actor', {
+  return super.init({
     id: {
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
-    first_name: {
+    firstName: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
+      field: 'first_name'
     },
-    last_name: {
+    lastName: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
+      field: 'last_name'
     }
   }, {
+    sequelize,
     tableName: 'actor',
     timestamps: false,
     indexes: [

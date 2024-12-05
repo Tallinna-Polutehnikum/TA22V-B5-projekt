@@ -1,32 +1,35 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class actorMovie extends Model {
+export default class ActorMovie extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('actorMovie', {
+  return super.init({
     id: {
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
-    actor_id: {
+    actorId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'actor',
         key: 'id'
-      }
+      },
+      field: 'actor_id'
     },
-    movie_id: {
+    movieId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'movie',
         key: 'id'
-      }
+      },
+      field: 'movie_id'
     }
   }, {
+    sequelize,
     tableName: 'actor_movie',
     timestamps: false,
     indexes: [

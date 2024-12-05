@@ -1,9 +1,9 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class movie extends Model {
+export default class Movie extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('movie', {
+  return super.init({
     id: {
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
@@ -26,23 +26,26 @@ export default class movie extends Model {
       type: DataTypes.DATEONLY,
       allowNull: false
     },
-    language_id: {
+    languageId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'language',
         key: 'id'
-      }
+      },
+      field: 'language_id'
     },
-    sublang_id: {
+    sublangId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'language',
         key: 'id'
-      }
+      },
+      field: 'sublang_id'
     }
   }, {
+    sequelize,
     tableName: 'movie',
     timestamps: false,
     indexes: [

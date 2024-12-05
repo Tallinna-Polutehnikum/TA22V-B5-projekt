@@ -1,7 +1,7 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class User extends Model {
+export default class Hall extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
     id: {
@@ -10,21 +10,22 @@ export default class User extends Model {
       allowNull: false,
       primaryKey: true
     },
-    email: {
-      type: DataTypes.STRING(255),
-      allowNull: false
+    addressId: {
+      type: DataTypes.BIGINT.UNSIGNED,
+      allowNull: false,
+      references: {
+        model: 'address',
+        key: 'id'
+      },
+      field: 'address_id'
     },
-    name: {
-      type: DataTypes.STRING(255),
+    title: {
+      type: DataTypes.TEXT,
       allowNull: true
-    },
-    password: {
-      type: DataTypes.STRING(255),
-      allowNull: false
     }
   }, {
     sequelize,
-    tableName: 'user',
+    tableName: 'hall',
     timestamps: false,
     indexes: [
       {
@@ -36,10 +37,10 @@ export default class User extends Model {
         ]
       },
       {
-        name: "user_email_index",
+        name: "hall_address_id_foreign",
         using: "BTREE",
         fields: [
-          { name: "email" },
+          { name: "address_id" },
         ]
       },
     ]

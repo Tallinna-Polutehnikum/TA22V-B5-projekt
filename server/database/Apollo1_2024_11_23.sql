@@ -138,15 +138,18 @@ alter table
 create table `seat` (
 	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `hall_id` BIGINT UNSIGNED NOT NULL,
-    `type`  BIGINT UNSIGNED NOT NULL
+    `type`  BIGINT UNSIGNED NOT NULL,
+    `row` BIGINT UNSIGNED NOT NULL,
+    `seat` BIGINT UNSIGNED NOT NULL
     );
-alter table
-`seat` add constraint `seat_type_id_foreign` foreign key(`type`) references `seat_type`(`id`);
 create table `seat_type`(
 	 `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
      `type` TEXT NOT NULL
 );
-
+alter table
+`seat` add constraint `seat_type_id_foreign` foreign key(`type`) references `seat_type`(`id`);
+alter table
+`seat` add constraint `seat_hall_id_foreign` foreign key(`hall_id`) references `hall`(`id`);
 CREATE TABLE `city` (
 	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` TEXT(255) NOT NULL
@@ -193,6 +196,8 @@ ALTER TABLE
 
 ALTER TABLE
     `rating` ADD CONSTRAINT `rating_movie_id_foreign` FOREIGN KEY(`movie_id`) REFERENCES `movie`(`id`);
+ALTER TABLE
+    `rating` ADD CONSTRAINT `rating_user_id_foreign` FOREIGN KEY(`user_id`) REFERENCES `user`(`id`);
 ALTER TABLE
     `permission_role` ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY(`permission_id`) REFERENCES `permission`(`id`);
 ALTER TABLE

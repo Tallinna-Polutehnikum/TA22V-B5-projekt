@@ -1,7 +1,7 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class PermissionRole extends Model {
+export default class Seat extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
     id: {
@@ -10,27 +10,34 @@ export default class PermissionRole extends Model {
       allowNull: false,
       primaryKey: true
     },
-    permissionId: {
+    hallId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
-        model: 'permission',
+        model: 'hall',
         key: 'id'
       },
-      field: 'permission_id'
+      field: 'hall_id'
     },
-    roleId: {
+    type: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
-        model: 'role',
+        model: 'seat_type',
         key: 'id'
-      },
-      field: 'role_id'
+      }
+    },
+    row: {
+      type: DataTypes.BIGINT.UNSIGNED,
+      allowNull: false
+    },
+    seat: {
+      type: DataTypes.BIGINT.UNSIGNED,
+      allowNull: false
     }
   }, {
     sequelize,
-    tableName: 'permission_role',
+    tableName: 'seat',
     timestamps: false,
     indexes: [
       {
@@ -42,17 +49,17 @@ export default class PermissionRole extends Model {
         ]
       },
       {
-        name: "permission_role_permission_id_index",
+        name: "seat_type_id_foreign",
         using: "BTREE",
         fields: [
-          { name: "permission_id" },
+          { name: "type" },
         ]
       },
       {
-        name: "permission_role_role_id_index",
+        name: "seat_hall_id_foreign",
         using: "BTREE",
         fields: [
-          { name: "role_id" },
+          { name: "hall_id" },
         ]
       },
     ]

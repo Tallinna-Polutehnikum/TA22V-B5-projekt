@@ -1,36 +1,39 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class session extends Model {
+export default class Session extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('session', {
+  return super.init({
     id: {
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
-    movie_id: {
+    movieId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'movie',
         key: 'id'
-      }
+      },
+      field: 'movie_id'
     },
-    address_id: {
+    addressId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'address',
         key: 'id'
-      }
+      },
+      field: 'address_id'
     },
     date: {
       type: DataTypes.DATE,
       allowNull: false
     }
   }, {
+    sequelize,
     tableName: 'session',
     timestamps: false,
     indexes: [

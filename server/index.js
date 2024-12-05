@@ -1,8 +1,10 @@
 // import { createRequire } from "module";
 // const require = createRequire(import.meta.url);
 import sequelize from './db.js';
-import express from 'express';
+import express from 'express';  
+import initModels from './models/init-models.js';
 
+const models = initModels(sequelize);
 const PORT = process.env.PORT;
 const app = express();
 

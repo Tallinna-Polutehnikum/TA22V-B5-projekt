@@ -1,32 +1,35 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class userRole extends Model {
+export default class UserRole extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('userRole', {
+  return super.init({
     id: {
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
-    user_id: {
+    userId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'user',
         key: 'id'
-      }
+      },
+      field: 'user_id'
     },
-    role_id: {
+    roleId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'role',
         key: 'id'
-      }
+      },
+      field: 'role_id'
     }
   }, {
+    sequelize,
     tableName: 'user_role',
     timestamps: false,
     indexes: [

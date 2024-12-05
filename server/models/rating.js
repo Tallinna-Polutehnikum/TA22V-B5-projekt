@@ -1,32 +1,35 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class rating extends Model {
+export default class Rating extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('rating', {
+  return super.init({
     id: {
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
-    user_id: {
+    userId: {
       type: DataTypes.BIGINT.UNSIGNED,
-      allowNull: false
+      allowNull: false,
+      field: 'user_id'
     },
-    movie_id: {
+    movieId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: 'movie',
         key: 'id'
-      }
+      },
+      field: 'movie_id'
     },
     rate: {
       type: DataTypes.INTEGER,
       allowNull: true
     }
   }, {
+    sequelize,
     tableName: 'rating',
     timestamps: false,
     indexes: [

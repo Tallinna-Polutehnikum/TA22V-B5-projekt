@@ -1,9 +1,9 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class language extends Model {
+export default class Language extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('language', {
+  return super.init({
     id: {
       autoIncrement: true,
       type: DataTypes.BIGINT.UNSIGNED,
@@ -15,6 +15,7 @@ export default class language extends Model {
       allowNull: false
     }
   }, {
+    sequelize,
     tableName: 'language',
     timestamps: false,
     indexes: [
