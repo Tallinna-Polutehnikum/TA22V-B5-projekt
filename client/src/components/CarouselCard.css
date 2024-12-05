@@ -11,27 +11,35 @@ body {
 }
 
 .CarouselCard {
-    width: 100%; /* Width of the marquee area */
-    height: 20vh; /* Height of the marquee area */
-    overflow: hidden; /* Hide elements that go beyond the boundaries */
+    width: 100%;    /*  Width of the marquee area */
+    overflow: hidden; /*Hide elements that go beyond the boundaries */
     position: relative;
 }
 
-.CarouselCard .CarouselCard-content:hover li{
+.CarouselCard .CarouselCard-content:hover{
     animation-play-state: paused;
 }
 
 .CarouselCard-content {
-    display: flex; /* Use flexbox for horizontal arrangement of items */
-    animation: CarouselCard 50s linear infinite; /* Animation for scrolling */
+    display: flex;  /*  Use flexbox for horizontal arrangement of items */
+    animation: CarouselCard 50s linear infinite;    /* Animation for scrolling */
+}
+
+.CarouselCard-content div div.card{
+    margin: 0 0.5vw;
+}
+.CarouselCard-content div div.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .CarouselCard-content li {
-    list-style: none; /* Remove list markers */
+    list-style: none;                               /* Remove list markers */
 }
 
 /* Keyframes for scrolling animation */
 @keyframes CarouselCard {
-    0% { transform: translateX(0); } /* Start position (first element visible) */
-    100% { transform: translateX(-50%); } /* End position (half of the total width) */
+    0% { transform: translateX(0); }        /* Start position (first element visible) */
+    100% { transform: translateX(-50%); }   /* End position (half of the total width) */
 }
