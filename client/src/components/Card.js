@@ -1,3 +1,4 @@
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 const CardExample = ({ cardData }) => {
@@ -5,7 +6,7 @@ return (
   <div className="d-flex justify-content-around">
     {cardData && cardData.length > 0 ? (
       cardData.map((data, index) => (
-        <Card key={index} style={{ width: '18rem' }} class='mx-0 mx-sm-2'>
+        <Card key={index} style={{ width: '18rem' }} className='mx-0 mx-sm-2'>
           <Card.Img variant="top" src={data.image} />
           <Card.Body>
             <Card.Title>

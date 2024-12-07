@@ -1,24 +1,29 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+:root {
+  /* main width */
+  --mw: 75vw;  /* usage: width: var(--mw); */
 }
 
 .main {
+  /* display: block; */
+  /* text-align: center !important; */
+  margin: auto !important;
   min-height: 90vh;
-  max-width: 50vw;
+  max-width: var(--mw);
   padding: 20px;
+}
+
+#root nav.navbar{
+  padding: 0 calc((100vw - var(--mw))/2);
+}
+
+
+/* Media query for small screens */
+@media (max-width: 720px) {
+  .main {
+      max-width: 100%;
+  }
+  #root nav.navbar{
+    padding: 0;
+  }
+
 }

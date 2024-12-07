@@ -31,8 +31,6 @@ const CarouselCard = () => {
 
 
 
-
-
     useEffect(() => {
         // Set an interval to add a new logo every second
         const interval = setInterval(() => {

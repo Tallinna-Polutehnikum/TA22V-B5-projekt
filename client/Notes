@@ -40,5 +40,17 @@ find out w repeats every time.
     class='mx-0 mx-sm-2' >sm=2rem
 
 05-12
-    fix carousel height. image should fit into.
+    fix carousel size. should change. image should fit into.
     overflow: hidden; /*p? Hide elements that go beyond the boundaries */ 
+    cardExample -> card
+    card image should be link
+    шир 70vw footer
+        take old footer?
+    movies доб плажку под сортировку. жанр, город, место, язык. 
+    найти пример страицы пользователя (tpt)
+        https://profile.apolloclub.app/gift-card
+        https://devncoffee.com/simple-admin-panel-html-css/
+        https://github.com/ijswadhawan/Free-Bootstrap-html-Css-Admin-Panel
+    синхронуть ysb/tpt
+
+    https://getbootstrap.com/docs/5.3/examples/
