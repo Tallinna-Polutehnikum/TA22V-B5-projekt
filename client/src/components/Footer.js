@@ -1,37 +1,36 @@
 import React from 'react';
-import { Container, Row, Col, Nav } from 'react-bootstrap';
+import { Container, Row, Col, Nav, Image, NavLink } from 'react-bootstrap';
 import logo from '../logo.svg'; // Import logo
 
 const Footer = () => {
     return (
-        <footer className="bg-dark text-white text-center text-lg-start mt-auto">
+        <footer className="bg-dark text-white mt-auto">
             <Container fluid>
                 <Row className="py-4">
-                    <Col className="d-flex align-items-center justify-content-center">
-                        <img
+                    <Col className="d-flex align-items-center">
+                        <Image
                             src={logo}
                             alt="Logo"
-                            className="img-fluid"
-                            style={{ padding: '10px', maxWidth: '200px', width: '100%' }}
+                            rounded
+                            width={150}
+                            height={150}
                         />
                     </Col>
                     <Col>
                         <h5>Links</h5>
                         <Nav className="flex-column">
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/about">About Us</Nav.Link>
-                            <Nav.Link href="/checkout">Checkout</Nav.Link>
-                            <Nav.Link href="/movie/:id">Movies</Nav.Link>
+                            <NavLink href="/">Home</NavLink>
+                            <NavLink href="/about">About Us</NavLink>
+                            <NavLink href="/checkout">Checkout</NavLink>
+                            <NavLink href="/movies">Movies</NavLink>
                         </Nav>
                     </Col>
-                    <Col>
+                    <Col className="text-center">
                         <h5>About Us</h5>
                         <p>This is a movie application that helps you find and explore movies.</p>
-                    <Col className="text-center">
-                        <p>© 2024 My Movie App. All rights reserved.</p>
-                    </Col>
-                    </Col>
-                    <Col>
+                        <Col>
+                            <p>© 2024 My Movie App. All rights reserved.</p>
+                        </Col>
                     </Col>
                 </Row>
             </Container>

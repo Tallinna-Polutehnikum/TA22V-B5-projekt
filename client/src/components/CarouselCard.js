@@ -4,13 +4,32 @@ import CardExample from '../components/Card';
 
 const CarouselCard = () => {
     const [logos, setLogos] = useState(Array.from({ length: 1 }, (_, index) => index));
-    
-    const cardImages = [
-        'https://picsum.photos/id/1006/300/200',
-        'https://picsum.photos/id/1018/300/200',
-        'https://picsum.photos/id/1012/300/200',
-        'https://th.bing.com/th/id/R.df900ae69fa7b8d3158c0e49bc7b06c1?rik=1voe9ibJ7UUv8Q'
+
+    // const [cardData, setCardData] = useState([]);        // Card data waitnig placeholder
+    const cardData = [
+        {
+            image: 'https://picsum.photos/id/1006/300/200',
+            title: 'Hills',
+            description: 'they walk among hills or mountains. Many persons walk alone ...',
+        },
+        {
+            image: 'https://picsum.photos/id/1018/300/200',
+            title: 'Norway',
+            description: 'Bures boahtin. Hello (General greeting)',
+        },
+        {
+            image: 'https://picsum.photos/id/1012/300/200',
+            title: 'Man & dog',
+            description: 'What is the saying man and his dog?',
+        },
+        {
+            image: 'https://th.bing.com/th/id/R.df900ae69fa7b8d3158c0e49bc7b06c1?rik=1voe9ibJ7UUv8Q',
+            title: 'Capybara',
+            description: 'They are excellent swimmers',
+        },
     ];
+
+
 
     useEffect(() => {
         // Set an interval to add a new logo every second
@@ -30,7 +49,7 @@ const CarouselCard = () => {
             <ul className="CarouselCard-content">
 
                 {logos.map((index) => (
-                    <CardExample images={cardImages}/>
+                    <CardExample cardData={cardData} />
                 ))}
 
             </ul>

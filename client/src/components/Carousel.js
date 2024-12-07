@@ -6,7 +6,7 @@ import './Carousel.css';
 
 const Carousel = ({ images }) => {
     return (
-        <div id="carouselExample" className="carousel slide" data-bs-ride="carousel"  data-bs-theme="dark">
+        <div id="carouselExample" class="w-100 w-md-25" className="carousel slide" data-bs-ride="carousel"  data-bs-theme="dark">
 
             {/* The slideshow/carousel */}
             <div className="carousel-inner">
