@@ -42,15 +42,24 @@ find out w repeats every time.
 05-12
     fix carousel size. should change. image should fit into.
     overflow: hidden; /*p? Hide elements that go beyond the boundaries */ 
-    cardExample -> card
-    card image should be link
+    
+    ; cardExample -> card
+    ; card image should be link
+    ; синхронуть ysb/tpt
     шир 70vw footer
         take old footer?
     movies доб плажку под сортировку. жанр, город, место, язык. 
-    найти пример страицы пользователя (tpt)
-        https://profile.apolloclub.app/gift-card
-        https://devncoffee.com/simple-admin-panel-html-css/
-        https://github.com/ijswadhawan/Free-Bootstrap-html-Css-Admin-Panel
-    синхронуть ysb/tpt
+    ; найти пример страицы пользователя (tpt)
+    ;     https://profile.apolloclub.app/gift-card
+    ;     https://devncoffee.com/simple-admin-panel-html-css/
+    ;     https://github.com/ijswadhawan/Free-Bootstrap-html-Css-Admin-Panel
+        
+    на кнопку входа доб. страничку с активностями.
+        login
+        resisner
+        ADD-Movie page
+            name-descr-fotos-
+
+            
 
     https://getbootstrap.com/docs/5.3/examples/

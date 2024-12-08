@@ -12,7 +12,8 @@ export default class Language extends Model {
     },
     name: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
+      unique: "unique_name"
     }
   }, {
     sequelize,
@@ -28,7 +29,8 @@ export default class Language extends Model {
         ]
       },
       {
-        name: "language_name_index",
+        name: "unique_name",
+        unique: true,
         using: "BTREE",
         fields: [
           { name: "name", length: 255 },

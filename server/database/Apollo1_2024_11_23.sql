@@ -1,11 +1,12 @@
 CREATE TABLE `movie`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `title` TEXT NOT NULL,
-    `rating` INT NULL,
+    `rating` INT NULL default 0,
     `description` LONGTEXT NOT NULL,
     `year` DATE NOT NULL,
-    `language_id` BIGINT UNSIGNED NOT NULL, 
-    `sublang_id` BIGINT UNSIGNED NOT NULL
+    `language_id` BIGINT UNSIGNED, 
+    `sublang_id` BIGINT UNSIGNED,
+    `image` longblob
 );
 ALTER TABLE
     `movie` ADD INDEX `movie_year_index`(`year`);
@@ -84,7 +85,7 @@ CREATE TABLE `language`(
     `name` TEXT NOT NULL
 );
 ALTER TABLE
-    `language` ADD INDEX `language_name_index`(`name`(255));
+    `language` ADD CONSTRAINT `unique_name` UNIQUE (`name`(255));
 CREATE TABLE `rating`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` BIGINT UNSIGNED NOT NULL,

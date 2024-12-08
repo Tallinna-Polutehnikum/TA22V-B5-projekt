@@ -13,6 +13,10 @@ export default class Rating extends Model {
     userId: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
+      },
       field: 'user_id'
     },
     movieId: {

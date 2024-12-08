@@ -16,7 +16,8 @@ export default class Movie extends Model {
     },
     rating: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      defaultValue: 0
     },
     description: {
       type: DataTypes.TEXT,
@@ -28,7 +29,7 @@ export default class Movie extends Model {
     },
     languageId: {
       type: DataTypes.BIGINT.UNSIGNED,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'language',
         key: 'id'
@@ -37,12 +38,16 @@ export default class Movie extends Model {
     },
     sublangId: {
       type: DataTypes.BIGINT.UNSIGNED,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'language',
         key: 'id'
       },
       field: 'sublang_id'
+    },
+    image: {
+      type: DataTypes.BLOB,
+      allowNull: true
     }
   }, {
     sequelize,

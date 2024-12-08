@@ -73,9 +73,6 @@ export default function initModels(sequelize) {
   Movie.hasMany(MovieGenre, { as: "movieGenres", foreignKey: "movieId"});
   Rating.belongsTo(Movie, { as: "movie", foreignKey: "movieId"});
   Movie.hasMany(Rating, { as: "ratings", foreignKey: "movieId"});
-
-  Rating.belongsTo(User, { as: "user", foreignKey: "userId"});
-  User.hasMany(Rating, { as: "ratings", foreignKey: "userId"});
   Session.belongsTo(Movie, { as: "movie", foreignKey: "movieId"});
   Movie.hasMany(Session, { as: "sessions", foreignKey: "movieId"});
   PermissionRole.belongsTo(Permission, { as: "permission", foreignKey: "permissionId"});
@@ -88,6 +85,8 @@ export default function initModels(sequelize) {
   SeatType.hasMany(Seat, { as: "seats", foreignKey: "type"});
   Ticket.belongsTo(Session, { as: "session", foreignKey: "sessionId"});
   Session.hasMany(Ticket, { as: "tickets", foreignKey: "sessionId"});
+  Rating.belongsTo(User, { as: "user", foreignKey: "userId"});
+  User.hasMany(Rating, { as: "ratings", foreignKey: "userId"});
   UserRole.belongsTo(User, { as: "user", foreignKey: "userId"});
   User.hasMany(UserRole, { as: "userRoles", foreignKey: "userId"});
 
