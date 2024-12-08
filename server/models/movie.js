@@ -25,7 +25,7 @@ export default class Movie extends Model {
     },
     year: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: true
     },
     languageId: {
       type: DataTypes.BIGINT.UNSIGNED,

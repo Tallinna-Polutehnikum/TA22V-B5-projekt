@@ -3,7 +3,7 @@ CREATE TABLE `movie`(
     `title` TEXT NOT NULL,
     `rating` INT NULL default 0,
     `description` LONGTEXT NOT NULL,
-    `year` DATE NOT NULL,
+    `year` DATE ,
     `language_id` BIGINT UNSIGNED, 
     `sublang_id` BIGINT UNSIGNED,
     `image` longblob
@@ -78,7 +78,7 @@ ALTER TABLE
     `permission_role` ADD INDEX `permission_role_role_id_index`(`role_id`);
 CREATE TABLE `permission`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` BIGINT NOT NULL
+    `name` text NOT NULL
 );
 CREATE TABLE `language`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -129,6 +129,8 @@ CREATE TABLE `address_type`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `type` TEXT(255) NOT NULL
 );
+ALTER TABLE `address_type`
+ADD CONSTRAINT `unique_type` UNIQUE (`type`(255));
 create table `hall` (
 	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `address_id`  BIGINT UNSIGNED NOT NULL,
@@ -160,6 +162,17 @@ CREATE TABLE `actor`(
     `first_name` LONGTEXT NOT NULL,
     `last_name` LONGTEXT NOT NULL
 );
+ALTER TABLE `city`
+ADD CONSTRAINT `unique_name` UNIQUE (`name`(255));
+ALTER TABLE `genre`
+ADD CONSTRAINT `unique_genre` UNIQUE (`genre`(255));
+ALTER TABLE `permission`
+ADD CONSTRAINT `unique_name` UNIQUE (`name`(255));
+ALTER TABLE `role`
+ADD CONSTRAINT `unique_name` UNIQUE (`name`(255));
+ALTER TABLE `seat_type`
+ADD CONSTRAINT `unique_type` UNIQUE (`type`(255));
+
 ALTER TABLE
     `actor` ADD INDEX `actor_first_name_index`(`first_name`(255));
 ALTER TABLE

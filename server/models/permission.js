@@ -11,8 +11,9 @@ export default class Permission extends Model {
       primaryKey: true
     },
     name: {
-      type: DataTypes.BIGINT,
-      allowNull: false
+      type: DataTypes.TEXT,
+      allowNull: true,
+      unique: "unique_name"
     }
   }, {
     sequelize,
@@ -25,6 +26,14 @@ export default class Permission extends Model {
         using: "BTREE",
         fields: [
           { name: "id" },
+        ]
+      },
+      {
+        name: "unique_name",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "name", length: 255 },
         ]
       },
     ]

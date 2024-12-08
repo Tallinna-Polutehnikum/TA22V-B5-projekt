@@ -12,7 +12,8 @@ export default class City extends Model {
     },
     name: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
+      unique: "unique_name"
     }
   }, {
     sequelize,
@@ -25,6 +26,14 @@ export default class City extends Model {
         using: "BTREE",
         fields: [
           { name: "id" },
+        ]
+      },
+      {
+        name: "unique_name",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "name", length: 255 },
         ]
       },
     ]

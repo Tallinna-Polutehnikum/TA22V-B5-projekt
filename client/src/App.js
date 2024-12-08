@@ -28,7 +28,7 @@ function App() {
                     <Route path="/addMoviePage" element={<AddMoviePage />} />
                     <Route path="/adminPage" element={<AdminPage />} />
                 </Routes>
-                <a href="https://reactjs.org">Learn React</a>
+                {/* <a href="https://reactjs.org">Learn React</a> */}
             </main>
             <Footer />
         </Router>

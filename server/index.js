@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
 import errorHandler from './middleware/ErrorHandlingMiddleware.js';
 
 const models = initModels(sequelize);
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -25,7 +25,7 @@ app.use(errorHandler)
 
 app.get('/', (req, res) =>
 {
-    res.status(200).json({message: 'working'})
+    res.status(200).json({message: 'express is working'})
 })
 
 const start = async () => {

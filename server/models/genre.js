@@ -12,7 +12,8 @@ export default class Genre extends Model {
     },
     genre: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: false,
+      unique: "unique_genre"
     }
   }, {
     sequelize,
@@ -25,6 +26,14 @@ export default class Genre extends Model {
         using: "BTREE",
         fields: [
           { name: "id" },
+        ]
+      },
+      {
+        name: "unique_genre",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "genre" },
         ]
       },
     ]
