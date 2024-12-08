@@ -25,9 +25,10 @@ return (
         <Nav.Link href="/checkout">Checkout</Nav.Link>
         <Nav.Link href="/movies">Movies</Nav.Link>
       </Nav>
-      <Nav>
-        <Nav.Link className="me-2">
+      <Nav className="me-2">
+        <Nav.Link href="/addMoviePage">
           <FontAwesomeIcon icon={faRightToBracket} size="xl"/>
+
         </Nav.Link>
       </Nav>
     </Navbar.Collapse>
