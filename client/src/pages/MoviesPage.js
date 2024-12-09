@@ -1,5 +1,6 @@
 import React from 'react';
 import CardRows from '../components/CardRows';
+import MovFilter from '../components/MovFilter';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const MoviesPage = () => {
@@ -64,6 +65,7 @@ const MoviesPage = () => {
     // x5 the number of cards
     return (
         <div>
+            <MovFilter />
             <CardRows cardData={cardData} />
         </div>
     );

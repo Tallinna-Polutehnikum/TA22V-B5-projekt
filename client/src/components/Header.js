@@ -7,7 +7,7 @@ import './Header.css';
 
 function Header() {
 return (
-  <Navbar bg="dark" variant="dark" expand="sm" >
+  <Navbar bg="dark" variant="dark" expand="sm" class='n'>
     <Navbar.Brand href="/">
       <img
         src={logo}

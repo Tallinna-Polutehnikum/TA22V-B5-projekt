@@ -48,7 +48,6 @@ find out w repeats every time.
     ; синхронуть ysb/tpt
     шир 70vw footer
         take old footer?
-    movies доб плажку под сортировку. жанр, город, место, язык. 
     ; найти пример страицы пользователя (tpt)
     ;     https://profile.apolloclub.app/gift-card
     ;     https://devncoffee.com/simple-admin-panel-html-css/
@@ -57,8 +56,7 @@ find out w repeats every time.
     на кнопку входа доб. страничку с активностями.
         login
         resisner
-        ADD-Movie page
-            name-descr-fotos-
+
 
             
 

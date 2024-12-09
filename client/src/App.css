@@ -1,6 +1,6 @@
 :root {
   /* main width */
-  --mw: 75vw;  /* usage: width: var(--mw); */
+  --mw: 75vw;  /* width: var(--mw); */
 }
 
 .main {
@@ -12,7 +12,7 @@
   padding: 20px;
 }
 
-#root nav.navbar{
+#root nav.navbar.n{
   padding: 0 calc((100vw - var(--mw))/2);
 }
 
@@ -22,7 +22,7 @@
   .main {
       max-width: 100%;
   }
-  #root nav.navbar{
+  #root nav.navbar.n{
     padding: 0;
   }
 
