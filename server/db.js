@@ -12,12 +12,12 @@ dotenv.config({ path: path.resolve(path.dirname(fileURLToPath(import.meta.url)),
 
 
 const sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
+    process.env.DB_NAME || "apollo",
+    process.env.DB_USER || "remote",
     process.env.DB_PASSWORD,
     {
         dialect: 'mysql',
-        host: process.env.DB_HOST,
+        host: process.env.DB_HOST || "localhost",
         port: process.env.DB_PORT || 3306
     }
 );

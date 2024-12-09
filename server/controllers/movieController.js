@@ -11,9 +11,11 @@ class MovieController
         {
             const {title, rating, description, year, languageId, sublanguageId} = req.body
             const {img} = req.files
-            let fileName = v4() + ".jpg"
-            img.mv(path.resolve(__dirname, '..', 'static', fileName))
-    
+            if(img!=null)
+            {
+                let fileName = v4() + ".jpg"
+                img.mv(path.resolve(__dirname, '..', 'static', fileName))
+            }
             const movie = await Movie.create({title, rating, description, year, languageId, sublanguageId, img: fileName})
             return res.json(movie) 
         } catch(e)

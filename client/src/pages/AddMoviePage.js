@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+//import API_URL from '../App.js';
+
+
+export const API_URL = "http://localhost:3001" // dont add trailing slash /
 
 const AddMoviePage = () => 
 {
@@ -35,7 +39,7 @@ const AddMoviePage = () =>
 
             try 
             {
-                const response = await fetch('/api/movie', {method: 'POST', body: data,});
+                const response = await fetch(API_URL+'/api/movie', {method: 'POST', body: data});
           
                 if (!response.ok) {
                   throw new Error('Failed to add movie');
@@ -65,7 +69,7 @@ const AddMoviePage = () =>
             </Form.Group>        
             <Form.Group className="mb-3" controlId="AddMovieForm.ControlInput2">
                 <Form.Label>Year</Form.Label>
-                <Form.Control type="date" name="year" defaultValue="0" value={formData.year} onChange={handleChange}/>                        
+                <Form.Control type="date" name="year"  value={formData.year} onChange={handleChange}/>                        
             </Form.Group>
             <Form.Group className="mb-3" controlId="AddMovieForm.ControlInput3">
                 <Form.Label>LanguageId</Form.Label>
