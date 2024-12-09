@@ -8,11 +8,11 @@
   /* text-align: center !important; */
   margin: auto !important;
   min-height: 90vh;
-  max-width: var(--mw);
+  max-width: var(--mw);   /*width: clamp(75vw, 1300px, 100%);*/
   padding: 20px;
 }
 
-#root nav.navbar.n{
+#root nav.navbar#n1{
   padding: 0 calc((100vw - var(--mw))/2);
 }
 
@@ -22,7 +22,7 @@
   .main {
       max-width: 100%;
   }
-  #root nav.navbar.n{
+  #root nav.navbar#n1{
     padding: 0;
   }
 
