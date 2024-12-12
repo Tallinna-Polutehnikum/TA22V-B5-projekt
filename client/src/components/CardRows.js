@@ -13,12 +13,14 @@ return (
       cardData.map((data, index) => (
         <Col xs={12} sm={6} md={6} lg={4} xxl={3} key={index}>
           <Card style={{ width: '100%' }} className='mb-4'>
+          <Button href={data.link} variant="link" style={{padding: 0}}>
             <Card.Img variant="top" src={data.image} />
+          </Button>
             <Card.Body>
             <div>
               <Card.Title>
                 <p>
-                  <a href="#" className="link-body-emphasis link-underline-opacity-0-hover">
+                  <a href={data.link} className="link-body-emphasis link-underline-opacity-0-hover">
                     {data.title}
                   </a>
                 </p>

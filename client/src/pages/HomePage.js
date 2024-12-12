@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from '../components/Carousel';
 import CarouselCard from '../components/CarouselCard';
-import CardExample from '../components/Card';
+import Card1 from '../components/Card1';
 
 
 
@@ -16,11 +16,13 @@ const HomePage = () => {
         {
             image: 'https://picsum.photos/id/1006/300/200',
             title: 'Hills',
+            link: '#',
             description: 'they walk among hills or mountains. Many persons walk alone ...',
         },
         {
             image: 'https://th.bing.com/th/id/R.df900ae69fa7b8d3158c0e49bc7b06c1?rik=1voe9ibJ7UUv8Q',
             title: 'Capybara',
+            link: '#',
             description: 'They are excellent swimmers',
         },
     ];
@@ -33,7 +35,7 @@ const HomePage = () => {
             <h4 class="mt-3"> Upcoming films</h4> 
             <CarouselCard/>
             <h4 class="mt-5"> Popular films</h4>
-            <CardExample cardData={cardData} />
+            <Card1 cardData={cardData} />
         </div>
     );
 };

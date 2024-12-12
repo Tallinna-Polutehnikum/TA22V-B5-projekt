@@ -1,17 +1,20 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
-const CardExample = ({ cardData }) => {
+const Card1 = ({ cardData }) => {
 return (
   <div className="d-flex justify-content-around">
     {cardData && cardData.length > 0 ? (
       cardData.map((data, index) => (
         <Card key={index} style={{ width: '18rem' }} className='mx-0 mx-sm-2'>
-          <Card.Img variant="top" src={data.image} />
+          <Button href={data.link} variant="link" style={{padding: 0}}>
+            <Card.Img variant="top" src={data.image} />
+          </Button>
           <Card.Body>
             <Card.Title>
               <p>
-                <a href="#" className="link-body-emphasis link-underline-opacity-0-hover">
+                <a href={data.link} className="link-body-emphasis link-underline-opacity-0-hover">
                   {data.title}
                 </a>
               </p>
@@ -27,4 +30,4 @@ return (
 );
 }
 
-export default CardExample;
+export default Card1;
