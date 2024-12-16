@@ -23,8 +23,6 @@ find out w repeats every time.
     npm install react-router-dom
     
 21-11
-    как стоит добавить бутстрап карусель фото компонент? стоит делать по отдельному файлу под каждую карусель или, например, файл который как аргументы получает названия фото из базы данных?
-
     W3Schools - React Tutorial: Этот ресурс предлагает вводный курс по React, включая использование Create React App. Он охватывает основные концепции и примеры кода. W3Schools 1.
     Codecademy - Creating a React App: В этой статье подробно описывается процесс создания вашего первого приложения на React с помощью Create React App. Она также включает информацию о структуре проекта и использовании JSX. Codecademy 3.
     Create React App Documentation: Официальная документация по Create React App содержит полную информацию о настройке и использовании инструмента, включая команды для создания нового приложения и его структуры. Create React App 5.
@@ -43,11 +41,12 @@ find out w repeats every time.
     fix carousel size. should change. image should fit into.
     overflow: hidden; /*p? Hide elements that go beyond the boundaries */ 
     
-    ; cardExample -> card
-    ; card image should be link
+
+    ; log in page some buttons
     ; синхронуть ysb/tpt
     шир 70vw footer
         take old footer?
+        grid system ;https://react-bootstrap.netlify.app/docs/layout/grid
     ; найти пример страицы пользователя (tpt)
     ;     https://profile.apolloclub.app/gift-card
     ;     https://devncoffee.com/simple-admin-panel-html-css/

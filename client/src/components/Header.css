@@ -7,10 +7,10 @@
     margin-left: 10px;
 }
 
-/* If you want to change the styles for navigation links */
 .nav-link {
-    font-weight: bold; /* Bold font for navigation links */
-    transition: color 0.3s; /* Smooth color transition on hover */
+    color: #999;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
 .nav-link:hover {

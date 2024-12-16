@@ -1,13 +1,19 @@
 :root {
-  /* main width */
-  --mw: 75vw;  /* width: var(--mw); */
-}
+  /*  main width  */
+  --mw: 75vw;     /* width: var(--mw); */
+  --headerH: 43px;
+  --footerH: 240px;
+} 
+
+body{
+  background-color: #556;
+} 
 
 .main {
   /* display: block; */
   /* text-align: center !important; */
   margin: auto !important;
-  min-height: 90vh;
+  min-height: calc(100dvh - var(--headerH));
   max-width: var(--mw);   /*width: clamp(75vw, 1300px, 100%);*/
   padding: 20px;
 }

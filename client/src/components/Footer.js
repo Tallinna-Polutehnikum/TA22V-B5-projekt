@@ -25,7 +25,7 @@ const Footer = () => {
                             <NavLink href="/movies">Movies</NavLink>
                         </Nav>
                     </Col>
-                    <Col className="text-center">
+                    <Col sm lg={4} className="text-center">
                         <h5>About Us</h5>
                         <p>This is a movie application that helps you find and explore movies.</p>
                         <Col>
