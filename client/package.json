@@ -21,13 +21,16 @@
     "@babel/preset-react": "^7.25.9",
     "@testing-library/react": "^16.0.1",
     "babel-jest": "^29.7.0",
+    "cypress": "^13.16.0",
     "jest": "^27.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "eslintConfig": {
     "extends": [

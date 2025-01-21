@@ -27,3 +27,9 @@ yarn-error.log*
 
 #other
 2nd_dev_week.gif
+
+# Cypress
+client/cypress/videos/
+client/cypress/screenshots/
+client/cypress/downloads/
+client/cypress/results/
