@@ -6,7 +6,7 @@ import Card1 from '../components/Card1';
 
 
 const HomePage = () => {
-    const c1Images = [
+    const favMovImages = [
         'https://picsum.photos/id/1006/1200/400',
         'https://picsum.photos/id/1018/1200/400',
         'https://picsum.photos/id/1012/1200/400',
@@ -31,7 +31,7 @@ const HomePage = () => {
         <div>
             <h1>Welcome to My Movie App</h1>
             <p>Discover your favorite movies!</p>
-            <Carousel images={c1Images} />
+            <Carousel images={favMovImages} />
             <h4 class="mt-3"> Upcoming films</h4> 
             <CarouselCard/>
             <h4 class="mt-5"> Popular films</h4>

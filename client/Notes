@@ -42,19 +42,24 @@ find out w repeats every time.
     overflow: hidden; /*p? Hide elements that go beyond the boundaries */ 
     
 
-    ; log in page some buttons
     ; синхронуть ysb/tpt
     шир 70vw footer
         take old footer?
         grid system ;https://react-bootstrap.netlify.app/docs/layout/grid
-    ; найти пример страицы пользователя (tpt)
+    ; сравнить страицы пользователя (tpt)
     ;     https://profile.apolloclub.app/gift-card
     ;     https://devncoffee.com/simple-admin-panel-html-css/
     ;     https://github.com/ijswadhawan/Free-Bootstrap-html-Css-Admin-Panel
+
+    there are more cards getbootstrap.com/docs/5.3/components/card/
         
     на кнопку входа доб. страничку с активностями.
         login
         resisner
+    
+    fix const carousel dvh height
+    fix test. paste comment should test buisness logic here
+    carousel. idea is have elements x2. (anim <- , jump to first state, repeat) 
 
 
             

@@ -25,4 +25,4 @@ Cypress tests
     cd client
     npm install
     Terminal 1: npm start
-    Terminal 2: npm run cypress:open (UI mode) OR npm run cypress:run (headless mode)
+    Terminal 2: npm run cypress:open    OR    npm run cypress:run (headless mode)

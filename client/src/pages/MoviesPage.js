@@ -1,7 +1,6 @@
 import React from 'react';
 import CardRows from '../components/CardRows';
 import MovFilter from '../components/MovFilter';
-import { Container, Row, Col } from 'react-bootstrap';
 
 const MoviesPage = () => {
     const cardData = [
