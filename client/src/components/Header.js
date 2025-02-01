@@ -20,13 +20,15 @@ return (
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
+
         <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/about">About Us</Nav.Link>
         <Nav.Link href="/checkout">Checkout</Nav.Link>
         <Nav.Link href="/movies">Movies</Nav.Link>
+
       </Nav>
       <Nav className="me-2">
-        <Nav.Link href="/addMoviePage">
+        <Nav.Link href="/addMoviePage" id="signIn">
           <FontAwesomeIcon icon={faRightToBracket} size="xl"/>
 
         </Nav.Link>

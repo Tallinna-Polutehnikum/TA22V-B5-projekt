@@ -52,6 +52,10 @@ find out w repeats every time.
     ;     https://github.com/ijswadhawan/Free-Bootstrap-html-Css-Admin-Panel
 
     there are more cards getbootstrap.com/docs/5.3/components/card/
+    https://www.geeksforgeeks.org/react-bootstrap-carousel-component/
+    https://www.geeksforgeeks.org/react-bootstrap-breadcrumb-component
+    make <- -> visible IF hover & THICKker
+    
         
     на кнопку входа доб. страничку с активностями.
         login
@@ -60,6 +64,8 @@ find out w repeats every time.
     fix const carousel dvh height
     fix test. paste comment should test buisness logic here
     carousel. idea is have elements x2. (anim <- , jump to first state, repeat) 
+
+    movies page. make cards height equal. 
 
 
             

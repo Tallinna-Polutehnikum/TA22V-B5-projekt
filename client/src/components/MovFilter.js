@@ -8,7 +8,7 @@ import { faLocationDot, faCalendar, faFilm } from '@fortawesome/free-solid-svg-i
 
 const MovFilter = () => {
   return (
-    <Navbar bg="dark" variant="dark" className="my-4">
+    <Navbar id="MovFilter" bg="dark" variant="dark" className="my-4">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
