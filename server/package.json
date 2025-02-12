@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "seed": "node --experimental-modules database/runSeed.js",
     "start": "node index.js",
     "dev": "nodemon index.js",
     "models": "npx sequelize-auto -h localhost -d apollo -u root -x Passw0rd -p 3306 --dialect mysql -o ./models --cm p --cp c --cf c -l esm"
@@ -15,11 +16,11 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.0",
     "express-fileupload": "^1.5.1",
-    "mysql2": "^3.11.4",
-    "sequelize": "^6.37.3",
+    "mysql2": "^3.12.0",
+    "sequelize": "^6.37.5",
     "uuid": "^11.0.3"
   },
   "devDependencies": {

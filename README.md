@@ -9,6 +9,8 @@ https://jwt.io/
 anodisJS: https://docs.adonisjs.com/guides/preface/introduction
 https://github.com/yii2mod/yii2-rbac
 
+https://tptlive-team-g3agrws6.atlassian.net/jira/
+
 
 
 
@@ -26,3 +28,7 @@ Cypress tests
     npm install
     Terminal 1: npm start
     Terminal 2: npm run cypress:open    OR    npm run cypress:run (headless mode)
+
+server
+    cd server
+    npm run seed

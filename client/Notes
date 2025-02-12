@@ -71,3 +71,22 @@ find out w repeats every time.
             
 
     https://getbootstrap.com/docs/5.3/examples/
+
+
+05-02
+    data
+    Coming Soon -> new_query-> updateData
+
+    take the real data now from db for movies
+    check this dummy db data: https://docs.platformatic.dev/docs/guides/seed-a-database 
+        fix navbar
+            buttons bigger.
+            higher movfilter
+
+        create a mysql on each new pc then fill it up with script(dummy data)
+        set nice package.json all setup commands there
+
+
+
+    new pages:
+        movie/id -> Showtimes -> seatCount -> seatChoose -> mail -> payment -> checkout
