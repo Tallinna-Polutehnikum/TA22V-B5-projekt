@@ -31,8 +31,9 @@ find out w repeats every time.
     https://www.codecademy.com/article/how-to-create-a-react-app
     https://create-react-app.dev/docs/getting-started/ 
 	
-	карусель. доб. чтобы не было кнопок переключения, а "кнопка" была в виде затемнения когда наводишся на самые левые или самые правые 50px
-	
+->  карусель. доб. чтобы не было кнопок переключения, а "кнопка" была в виде затемнения когда наводишся на самые левые или самые правые 50px
+    make <- -> visible IF hover. THICKker & bigger
+
 02-12
     CarouselCard.js- доб. фабрику элементов. Прокрутку по элементу за раз. Стрелки к прокрутке.
     class='mx-0 mx-sm-2' >sm=2rem
@@ -43,10 +44,9 @@ find out w repeats every time.
     
 
     ; синхронуть ysb/tpt
-    шир 70vw footer
-        take old footer?
-        grid system ;https://react-bootstrap.netlify.app/docs/layout/grid
+
     ; сравнить страицы пользователя (tpt)
+->  ;     Documents\GitHub\ps_hotkeys\pages\admin_page2
     ;     https://profile.apolloclub.app/gift-card
     ;     https://devncoffee.com/simple-admin-panel-html-css/
     ;     https://github.com/ijswadhawan/Free-Bootstrap-html-Css-Admin-Panel
@@ -54,7 +54,6 @@ find out w repeats every time.
     there are more cards getbootstrap.com/docs/5.3/components/card/
     https://www.geeksforgeeks.org/react-bootstrap-carousel-component/
     https://www.geeksforgeeks.org/react-bootstrap-breadcrumb-component
-    make <- -> visible IF hover & THICKker
     
         
     на кнопку входа доб. страничку с активностями.
@@ -65,8 +64,9 @@ find out w repeats every time.
     fix test. paste comment should test buisness logic here
     carousel. idea is have elements x2. (anim <- , jump to first state, repeat) 
 
-    movies page. make cards height equal. 
-
+->  movies page. 
+        make cards height equal. 
+        add padding to components
 
             
 
@@ -75,9 +75,9 @@ find out w repeats every time.
 
 05-02
     data
-    Coming Soon -> new_query-> updateData
+    Coming Soon *press* -> new_query-> updateData
 
-    take the real data now from db for movies
+    take the real data NOW from db for movies
     check this dummy db data: https://docs.platformatic.dev/docs/guides/seed-a-database 
         fix navbar
             buttons bigger.

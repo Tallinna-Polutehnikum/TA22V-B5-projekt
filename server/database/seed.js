@@ -14,6 +14,49 @@ export async function seed({ entities, db, sql }) {
     await entities.Role.create({ name: 'User' });
     await entities.Role.create({ name: 'Guest' });
 
+
+    // fill up table Movie
+    await entities.Movie.create({
+      title: 'Drama',
+      rating: 1,
+      description: 'they walk among hills or mountains. Many persons walk alone',
+      year: '2024-01-05',
+      languageId: 1,
+      sublangId: 1,
+      image: Buffer.from('https://picsum.photos/id/1006/300/200')
+    });
+    
+    await entities.Movie.create({
+      title: 'Norway',
+      rating: 2,
+      description: 'Bures boahtin. Hello (General greeting)',
+      year: '2023-04-25',
+      languageId: 2,
+      sublangId: 2,
+      image: Buffer.from('https://picsum.photos/id/1018/300/200')
+    });
+    
+    await entities.Movie.create({
+      title: 'Man & dog',
+      rating: 3,
+      description: 'What is the saying man and his dog?',
+      year: '2018-09-15',
+      languageId: 3,
+      sublangId: 3,
+      image: Buffer.from('https://picsum.photos/id/1012/300/200')
+    });
+    
+    await entities.Movie.create({
+      title: 'Capybara',
+      rating: 1,
+      description: 'They are excellent swimmers',
+      year: '1998-08-01',
+      languageId: 3,
+      sublangId: 2,
+      image: Buffer.from('https://animals.pibig.info/uploads/posts/2023-10/1696535989_animals-pibig-info-p-zabavnie-kapibari-pinterest-18.jpg')
+    });
+
+
     // add SQL-querry for unique_name in table language
     await db.query(`ALTER TABLE language ADD CONSTRAINT unique_name UNIQUE (name(255))`);
 
