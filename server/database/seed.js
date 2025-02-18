@@ -1,4 +1,17 @@
 // seed.js
+import fs from 'fs';
+import path from 'path';
+//import { fileURLToPath } from 'url';
+
+async function insertMovie(url) {
+    //const imagePath = path.join(path.dirname(fileURLToPath(import.meta.url)), url); // source of image
+    const imagePath = path.join(__dirname, url);
+    const imageBuffer = fs.readFileSync(imagePath); // image to buffer
+    return imageBuffer
+};
+
+
+
 export async function seed({ entities, db, sql }) {
   try {
     // fill up table language
@@ -47,13 +60,13 @@ export async function seed({ entities, db, sql }) {
     });
     
     await entities.Movie.create({
-      title: 'Capybara',
+      title: 'Capybura',
       rating: 1,
       description: 'They are excellent swimmers',
       year: '1998-08-01',
       languageId: 3,
       sublangId: 2,
-      image: Buffer.from('https://animals.pibig.info/uploads/posts/2023-10/1696535989_animals-pibig-info-p-zabavnie-kapibari-pinterest-18.jpg')
+      image: insertMovie('https://animals.pibig.info/uploads/posts/2023-10/1696535989_animals-pibig-info-p-zabavnie-kapibari-pinterest-18.jpg')
     });
 
 
