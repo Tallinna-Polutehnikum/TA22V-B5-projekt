@@ -11,7 +11,7 @@ export default class Language extends Model {
       primaryKey: true
     },
     name: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(255),
       allowNull: false,
       unique: "unique_name"
     }
@@ -29,11 +29,19 @@ export default class Language extends Model {
         ]
       },
       {
+        name: "name",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "name" },
+        ]
+      },
+      {
         name: "unique_name",
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "name", length: 255 },
+          { name: "name" },
         ]
       },
     ]

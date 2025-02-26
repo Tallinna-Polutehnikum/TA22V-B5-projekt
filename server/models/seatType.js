@@ -11,9 +11,9 @@ export default class SeatType extends Model {
       primaryKey: true
     },
     type: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(255),
       allowNull: false,
-      unique: "unique_type"
+      unique: "type"
     }
   }, {
     sequelize,
@@ -29,11 +29,11 @@ export default class SeatType extends Model {
         ]
       },
       {
-        name: "unique_type",
+        name: "type",
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "type", length: 255 },
+          { name: "type" },
         ]
       },
     ]

@@ -20,15 +20,15 @@ export default class Address extends Model {
       field: 'type_id'
     },
     address: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(255),
       allowNull: false
     },
     address2: {
-      type: DataTypes.TEXT,
-      allowNull: true
+      type: DataTypes.STRING(255),
+      allowNull: false
     },
     district: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     cityId: {
@@ -51,7 +51,7 @@ export default class Address extends Model {
     },
     location: {
       type: DataTypes.GEOMETRY,
-      allowNull: false
+      allowNull: true
     }
   }, {
     sequelize,
@@ -77,7 +77,7 @@ export default class Address extends Model {
         name: "address_address_index",
         using: "BTREE",
         fields: [
-          { name: "address", length: 255 },
+          { name: "address" },
         ]
       },
       {

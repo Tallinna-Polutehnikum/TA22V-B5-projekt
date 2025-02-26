@@ -1,7 +1,7 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class Actor extends Model {
+export default class MoviePoster extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
     id: {
@@ -10,19 +10,27 @@ export default class Actor extends Model {
       allowNull: false,
       primaryKey: true
     },
-    firstName: {
-      type: DataTypes.STRING(255),
+    movieId: {
+      type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
-      field: 'first_name'
+      references: {
+        model: 'movie',
+        key: 'id'
+      },
+      field: 'movie_id'
     },
-    lastName: {
-      type: DataTypes.STRING(255),
+    posterId: {
+      type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
-      field: 'last_name'
+      references: {
+        model: 'poster',
+        key: 'id'
+      },
+      field: 'poster_id'
     }
   }, {
     sequelize,
-    tableName: 'actor',
+    tableName: 'movie_poster',
     timestamps: false,
     indexes: [
       {
@@ -34,26 +42,19 @@ export default class Actor extends Model {
         ]
       },
       {
-        name: "first_lastname_un",
+        name: "movie_poster_un",
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "first_name" },
-          { name: "last_name" },
+          { name: "movie_id" },
+          { name: "poster_id" },
         ]
       },
       {
-        name: "actor_first_name_index",
+        name: "poster_id",
         using: "BTREE",
         fields: [
-          { name: "first_name" },
-        ]
-      },
-      {
-        name: "actor_last_name_index",
-        using: "BTREE",
-        fields: [
-          { name: "last_name" },
+          { name: "poster_id" },
         ]
       },
     ]

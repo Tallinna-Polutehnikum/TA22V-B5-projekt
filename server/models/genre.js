@@ -13,7 +13,7 @@ export default class Genre extends Model {
     genre: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      unique: "unique_genre"
+      unique: "genre"
     }
   }, {
     sequelize,
@@ -29,7 +29,7 @@ export default class Genre extends Model {
         ]
       },
       {
-        name: "unique_genre",
+        name: "genre",
         unique: true,
         using: "BTREE",
         fields: [

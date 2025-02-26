@@ -13,7 +13,7 @@ export default class Role extends Model {
     name: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      unique: "unique_name"
+      unique: "name"
     }
   }, {
     sequelize,
@@ -29,7 +29,7 @@ export default class Role extends Model {
         ]
       },
       {
-        name: "unique_name",
+        name: "name",
         unique: true,
         using: "BTREE",
         fields: [

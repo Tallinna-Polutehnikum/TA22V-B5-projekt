@@ -1,7 +1,7 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class Permission extends Model {
+export default class PosterType extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
     id: {
@@ -10,14 +10,14 @@ export default class Permission extends Model {
       allowNull: false,
       primaryKey: true
     },
-    name: {
+    type: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      unique: "name"
+      unique: "type"
     }
   }, {
     sequelize,
-    tableName: 'permission',
+    tableName: 'poster_type',
     timestamps: false,
     indexes: [
       {
@@ -29,11 +29,11 @@ export default class Permission extends Model {
         ]
       },
       {
-        name: "name",
+        name: "type",
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "name" },
+          { name: "type" },
         ]
       },
     ]
