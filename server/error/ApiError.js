@@ -1,5 +1,4 @@
-export default
-class ApiError extends Error 
+export default class ApiError extends Error     //universal error
 {
     constructor(status, message)
     {
@@ -9,17 +8,17 @@ class ApiError extends Error
     }
     static forbidden(message)
     {
-        return new ApiError(403, message)
+        return new ApiError(403, message);
     }
 
     static badRequest(message)
     {
-        return new ApiError(404, message)
+        return new ApiError(404, message);
     }
     
     static internal(message)
     {
-        return new ApiError(500, message)
+        return new ApiError(500, message);
     }
 
 } 
