@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin page</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- an icon library -->
+    <script src="https://kit.fontawesome.com/321f52a4c1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header id="header" class="fixed-top">
+        <nav class="navbar navbar-expand-sm navbar-dark justify-content-between">   
+            <div class="d-flex align-items-center">
+                <a href="" class="navbar-brand"><h5>Apollo admin</h5></a>
+                <a href="" class="nav-link link-light me-3"><h4><i class="fa fa-solid fa-bars"></i></h4></a>
+                <hr class="ms-1 hr-dark" width="3px">
+            </div>
+            
+            <div class="container">
+                <div class="input-group d-flex align-items-center" id="navContent">
+                    <!--<a href="" class="nav-link link-light"><h5><i class="fa-solid fa-filter"></i></h5></a>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control-sm bg-dark text-white rounded-pill" type="search" placeholder="  Search for an element here..." aria-label="Search">
+                        <button class="btn btn-dark bg-dark my-2 my-sm-0 rounded-pill" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                    </form>-->
+                </div>
+
+                <div class="float-right align-items-center" style="width: 300px; display:flex;">
+                    <span class="float-right me-auto d-none d-lg-block">
+                        <img class="rounded-circle" style="width: 50px; height: 50px;" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(21).jpg">
+                        <h7 class="link-light"> Full Name</h7>
+                    </span>
+                    <hr class="d-none d-lg-block" size="30" width="2px">
+                    <ul class="navbar-nav ms-3 mb-lg-0">
+                        <a href="/logout" class="nav-link"><h2><i class="fa-solid fa-arrow-right-from-bracket"></i></h2></a>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="sidebar">
+            <li class="no-bullets">
+                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link link-light align-middle">
+                    <i class="fa-solid fa-clipboard-user"></i> Profile <i class="float-right fa-solid fa-chevron-up"></i></a>
+                <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                    <li>
+                        <a href=" " target="iframe_a"><img class="rounded-circle" style="width: 20px; height: 20px;" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(21).jpg"> Full name</a>
+                    </li>
+                    <li>
+                        <a href="/Edit_profile.html" target="iframe_a"><i class="fa-fw fa-solid fa-circle-user"></i> Edit profile <sup>(working)</sup></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="no-bullets">
+                <a href="#submenu2" data-bs-toggle="collapse" class="nav-link link-light align-middle">
+                    <i class="fa-solid fa-vector-square"></i> Movies <i class=" float-right fa-solid fa-chevron-up"></i></a>
+                <ul class="collapse show nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                    <li>
+                        <a href="/Edit_hotkey.html" target="iframe_a"><i class="fa-fw fa-solid fa-pen"></i> Edit hotkey <sup>(working)</sup></a>
+                    </li>
+                    <li>
+                        <a href="/admin/movieAdd" target="iframe_a"><i class="fa-fw fa-solid fa-plus"></i> Add new Movie <sup>(working)</sup></a>
+                    </li>
+                    <li>
+                        <a href="#" target="iframe_a"><i class="fa-fw fa-solid fa-minus"></i> Remove Movie </a>
+                    </li>
+                    <li>
+                        <a href="#" target="iframe_a"><i class="fa-fw fa-solid fa-fire"></i> Popular Movies </a>
+                    </li>
+                    <li>
+                        <a href="#" target="iframe_a"><i class="fa-fw fa-solid fa-star"></i> Favourite Movies </a>
+                    </li>
+                </ul>
+            </li>
+            <a href="#Movies"></a>
+            <a href="#google"><i class="fa-brands fa-google"></i> Google Analytics</a>
+
+            <footer style="position:fixed; bottom: 0; height:60px; width:inherit; display:block;" class="align-items-center">
+                <h5 class="link-light"><img class="ms-4" style="width: 50px; height: 50px;" src="../../public/logo-sm.png"> Photoshop HK</h5>
+            </footer>        
+        </div>
+    </header>
+    
+    <div class="main-absolute" >
+        <iframe name="iframe_a" scrolling="no" 
+                class="rounded-3" style="height:100%; width:100%;" 
+                src="./pages/Edit_profile.html">
+        </iframe>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script language="javascript" src="js/bootstrap.js"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 export const API_URL = "http://localhost:3001" // dont add trailing slash /
 
-const AddMoviePage = () => 
+const MovieAdd = () => 
 {
     const [formData, setFormData] = useState({
         title: '',
@@ -91,4 +91,4 @@ const AddMoviePage = () =>
     );
 };
 
-export default AddMoviePage;
+export default MovieAdd;

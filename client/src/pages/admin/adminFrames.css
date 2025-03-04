@@ -1,0 +1,41 @@
+body {
+    background-color: #262626;
+}
+
+.text {
+    color: #fff;
+    opacity: 1;
+}
+
+input::placeholder { 
+    color: #fff; /* works with -sm or -lg*/
+    opacity: 1; /* Firefox */
+}
+
+/* changing the color palette */
+:root {
+    --bs-dark: #171717;
+    --bs-dark-rgb: 23,23,23;
+}
+
+div input.text-white{
+    margin: 0px 0px 12px 10px;
+    width: 250px;
+}
+
+.nav-link {
+    color: #fff;
+    opacity: 1;
+    font-size: 20px;
+}
+
+a.nav-link:hover{
+    color: #999;
+    transition: 0.2s;
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1600px;
+  }

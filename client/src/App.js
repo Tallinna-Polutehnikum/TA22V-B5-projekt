@@ -5,9 +5,12 @@ import AboutPage from './pages/AboutPage';
 import MoviePage from './pages/MoviePage';
 import MoviesPage from './pages/MoviesPage';
 import CheckoutPage from './pages/CheckoutPage';
+
 import Account from './pages/Account';
-import AddMoviePage from './pages/AddMoviePage';
-import AdminPage from './pages/AdminPage';
+import AdminPage from './pages/admin/AdminPage';
+import MovieAdd from './pages/admin/MovieAdd';
+import MovieEdit from './pages/admin/MovieEdit';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
@@ -26,8 +29,9 @@ function App() {
                     <Route path="/movies" element={<MoviesPage />} />
                     <Route path="/checkout" element={<CheckoutPage />} />
                     <Route path="/account" element={<Account />} />
-                    <Route path="/addMoviePage" element={<AddMoviePage />} />
                     <Route path="/adminPage" element={<AdminPage />} />
+                    <Route path="/admin/movieAdd" element={<MovieAdd />} />
+                    <Route path="/admin/MovieEdit" element={<MovieEdit />} />
                 </Routes>
                 {/* <a href="https://reactjs.org">Learn React</a> */}
             </main>
