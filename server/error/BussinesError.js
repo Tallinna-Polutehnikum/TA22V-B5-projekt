@@ -1,19 +1,27 @@
-export default class BussinesError extends Error     //bussines logic error
+export default class BussinesError extends Error     //universal bussines logic error
 {
-    constructor(message, addition)
-    {
+    constructor(message, addition) {
         super();
-        this.message = addition + message;
+        this.message = message + addition;
     }
-    static forbidden(message)
-    {
-        const addition = "Data not found: ";
+
+    static notFound(message) {
+        const addition = "is not found";
         return new BussinesError(message, addition);
     }
 
-    static invalid(message)
-    {
-        const addition = "Missing required data: ";
-        return new BussinesError(message, addition );
+    static invalidDataType(message) {
+        const addition = "has invalid data type";
+        return new BussinesError(message, addition);
+    }
+
+    static accessDenied(message) {
+        const addition = "access denied";
+        return new BussinesError(message, addition);
+    }
+
+    static notExists(message) {
+        const addition = "is not exists";
+        return new BussinesError(message, addition);
     }
 } 

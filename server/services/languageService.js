@@ -1,54 +1,49 @@
 import LanguageRepository from "../repositories/languageRepository";
 import BussinesError from "../error/BussinesError";
+import DataBaseError from "../error/DataBaseError";
+import { validateId, validateName } from "../middleware/ValidationIdMiddleware";
 
 export default class LanguageService {
-
-    async getLanguage(id) {
-        if (typeof id === 'number' && Number.isInteger(id)) {   //ПРИСМОТРЕТЬСЯ
-            const language = await LanguageRepository.findByPk(id);
-            if (!language) {
-                throw new BussinesError.forbidden();
-            }
-        }
-
-        return language;
-    }
-
-    async getLanguages() {
-        const languages = await LanguageRepository.findAll();
-        if (!languages) {
-          throw new BussinesError.forbidden();
-        }
-
-        return languages;
-    }
-  
-    async createLanguage(name) {
-      if (!name) {
-        throw new BussinesError.invalid();
-      }
-
-      return await LanguageRepository.create(name);
-    }
-
-    async updateLanguage(id, name) {
-        if (!id) {
-            throw new BussinesError.forbidden();
-        }
-
-        if (!name) {
-          throw new BussinesError.invalid();
-        }
-
-        return await LanguageRepository.update(id, name);
-    }
-    
-    async deleteLanguage(id) {
-        if (!id) {
-          throw new BussinesError.forbidden();
-        }
-
-        return await LanguageRepository.dalete(id);
-    }
-
+  constructor(LanguageRepository) {
+    this.languageRepository = LanguageRepository;
   }
+
+  async getLanguage(id) {
+    if (typeof id === 'number' && Number.isInteger(id)) {   //ПРИСМОТРЕТЬСЯ - надо заменить обратной логикой в мидлвейр
+      validateId(id);
+      const language = await languageRepository.findByPk(id);
+      if (!language) throw new DataBaseError;
+    }
+
+    return language;
+  }
+
+  async getLanguages() {
+    const languages = await languageRepository.findAll();
+    if (!languages) throw new DataBaseError;
+
+    return languages;
+  }
+
+  async createLanguage(name) {
+    validateName(name);
+    if (!name) throw new DataBaseError;
+
+    return await languageRepository.create(name);
+  }
+
+  async updateLanguage(id, name) {
+    if (!id) throw new DataBaseError;
+
+    if (!name) throw new DataBaseError;
+
+    return await languageRepository.update(id, name);
+  }
+
+  async deleteLanguage(id) {
+    if (!id) throw new DataBaseError;
+
+    return await languageRepository.dalete(id);
+  }
+
+}

@@ -1,89 +1,80 @@
-import DataBaseError from "../error/DataBaseError";
 import Language from "../models/language"
+import logger from "../utils/logger";
 
-export default class LanguageRepository{
-    constructor(){
+export default class LanguageRepository {
+    constructor() {
         this.cache = new Map(); //create a map object with cache 
     }
-    
-    async findByPk(id){
-        try {
-            if (this.cache.has(id)) {
-                console.log("Returning from cache");
-                return this.cache.get(id);
-            }
 
-            console.log("Fetching from db");
-            const language = await Language.findByPk(id);
+    async findByPk(id) {
 
-            if (language) {  // if exists
-                this.cache.set(id, language);
-            }
-            return language; 
-        } catch (error) {
-            throw new DataBaseError(error.message);
+        if (this.cache.has(id)) {
+            return this.cache.get(id);
         }
+
+        const language = await Language.findByPk(id);
+        if (language) { // if not null, not undefined, not a ''...
+            this.cache.set(id, language);
+        }
+
+        logger.info(`DB query: findById(${id})`);
+        return language;
 
     }
 
-    async findAll(){
-        try {
-            if (this.cache.has('all')) {
-                console.log("Returning from cache");
-                return this.cache.get('all');
-            }
+    async findAll() {
 
-            console.log("Fetching from db");
-            const languages = await Language.findAll();
-            this.cache.set('all', languages);
-            return languages;
-        } catch (error) {
-            throw new DataBaseError(error.message); 
+        if (this.cache.has('all')) {
+            return this.cache.get('all');
         }
+
+        const languages = await Language.findAll();
+        this.cache.set('all', languages);
+
+        logger.info(`DB query: findAll`);
+        return languages;
 
     }
 
-    async create(name){
-        try {
-            const language = await Language.create({ name });
-            console.log('language added');
-            this.cache.set(language.id, language);
-            return language;
-        } catch (error) {
-            throw new DataBaseError(error.message);
-        }
+    async create(data) {
+
+        const language = await Language.create({ data });
+        console.log('language added');
+        this.cache.set(language.id, language);
+
+        logger.info(`DB query: create(${data})`);
+        return language;
+
     }
 
     async update(id, newData) {
-        try {
-            const language = await findByPk(id);
-            if (!language) return null; //if not exists
 
-            await language.update(newData);
-            this.cache.set(language.id, language);
-            return language;
-        } catch (error) {
-            throw new DataBaseError(error.message);
-        }
+        const language = await findByPk(id);
+        if (!language) return null; //if null, undefined, ''...
+
+        await language.update(newData);
+        this.cache.set(language.id, language);
+
+        logger.info(`DB query: update(${id, newData})`);
+        return language;
 
     }
-    
+
     async delete(id) {
-        try {
-            const language = await findByPk(id);
-            if (!language) return null; //if not exists
 
-            await language.destroy();
-            this.cache.delete(id);
-            return true;    //confirms deletion (for bussines logic)
-        } catch (error) {
-            throw new DataBaseError(error.message);
-        }
+        const language = await findByPk(id);
+        if (!language) return null; //if null, undefined, ''...
+
+        await language.destroy();
+        this.cache.delete(id);
+
+        logger.info(`DB query: delete(${id})`);
+        return true;    //confirms deletion (for bussines logic)
 
     }
 
-    async clearCache(key){  //can be incapsulated
-        switch(key){
+    async clearCache(key) {
+        switch (key) {
             case 'all':
                 this.cache.delete('all');
                 break;
@@ -95,6 +86,6 @@ export default class LanguageRepository{
                 }
                 break;
         }
-
     }
+
 }
