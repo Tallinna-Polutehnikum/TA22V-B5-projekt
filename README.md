@@ -15,20 +15,20 @@ https://tptlive-team-g3agrws6.atlassian.net/jira/
 
 
 ____________________________________________________________________
-to start
-    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-    cd client 
-    npm install
-    npm test
-    npm start
+⁐⁐to start⁐⁐
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+cd client 
+npm install
+npm start
+npm test
 
 
-Cypress tests
-    cd client
-    npm install
-    Terminal 1: npm start
-    Terminal 2: npm run cypress:open    OR    npm run cypress:run (headless mode)
+⁐⁐Cypress tests⁐⁐
+cd client
+npm install
+Terminal 1: npm start
+Terminal 2: npm run cypress:open    OR    npm run cypress:run (headless mode)
 
-server
-    cd server
-    npm run seed
+⁐⁐server⁐⁐
+cd server
+node .\runSeed.js
