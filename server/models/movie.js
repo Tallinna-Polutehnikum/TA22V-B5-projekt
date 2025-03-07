@@ -11,7 +11,7 @@ export default class Movie extends Model {
       primaryKey: true
     },
     title: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(255),
       allowNull: false
     },
     rating: {

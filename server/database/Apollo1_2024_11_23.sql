@@ -1,6 +1,9 @@
-CREATE TABLE `movie`(
+drop database apollo;
+create database if not exists apollo;
+use apollo;
+CREATE TABLE if not exists `movie`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `title` TEXT NOT NULL,
+    `title` varchar(255) NOT NULL,
     `rating` INT NULL default 0,
     `description` LONGTEXT NOT NULL,
     `year` DATE ,
@@ -10,7 +13,7 @@ CREATE TABLE `movie`(
 );
 ALTER TABLE
     `movie` ADD INDEX `movie_year_index`(`year`);
-CREATE TABLE `user`(
+CREATE TABLE if not exists `user`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `email` VARCHAR(255) NOT NULL,
     `name` VARCHAR(255) NULL,
@@ -18,7 +21,7 @@ CREATE TABLE `user`(
 );
 ALTER TABLE
     `user` ADD INDEX `user_email_index`(`email`);
-CREATE TABLE `user_role`(
+CREATE TABLE if not exists `user_role`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` BIGINT UNSIGNED NOT NULL,
     `role_id` BIGINT UNSIGNED NOT NULL
@@ -27,7 +30,7 @@ ALTER TABLE
     `user_role` ADD INDEX `user_role_user_id_index`(`user_id`);
 ALTER TABLE
     `user_role` ADD INDEX `user_role_role_id_index`(`role_id`);
-CREATE TABLE `movie_genre`(
+CREATE TABLE if not exists `movie_genre`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `movie_id` BIGINT UNSIGNED NOT NULL,
     `genre_id` BIGINT UNSIGNED NOT NULL
@@ -36,15 +39,17 @@ ALTER TABLE
     `movie_genre` ADD INDEX `movie_genre_movie_id_index`(`movie_id`);
 ALTER TABLE
     `movie_genre` ADD INDEX `movie_genre_genre_id_index`(`genre_id`);
-CREATE TABLE `role`(
+CREATE TABLE if not exists `role`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(255) NOT NULL
+    `name` VARCHAR(255) NOT NULL,
+    unique (`name`)
 );
-CREATE TABLE `genre`(
+CREATE TABLE if not exists `genre`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `genre` VARCHAR(255) NOT NULL
+    `genre` VARCHAR(255) NOT NULL,
+    unique (`genre`)
 );
-CREATE TABLE `actor_movie`(
+CREATE TABLE if not exists `actor_movie`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `actor_id` BIGINT UNSIGNED NOT NULL,
     `movie_id` BIGINT UNSIGNED NOT NULL
@@ -53,7 +58,7 @@ ALTER TABLE
     `actor_movie` ADD INDEX `actor_movie_actor_id_index`(`actor_id`);
 ALTER TABLE
     `actor_movie` ADD INDEX `actor_movie_movie_id_index`(`movie_id`);
-CREATE TABLE `actor_genre`(
+CREATE TABLE if not exists `actor_genre`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `actor_id` BIGINT UNSIGNED NOT NULL,
     `genre_id` BIGINT UNSIGNED NOT NULL
@@ -62,12 +67,12 @@ ALTER TABLE
     `actor_genre` ADD INDEX `actor_genre_actor_id_index`(`actor_id`);
 ALTER TABLE
     `actor_genre` ADD INDEX `actor_genre_genre_id_index`(`genre_id`);
-CREATE TABLE `ticket`(
+CREATE TABLE if not exists `ticket`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `session_id` BIGINT UNSIGNED NOT NULL,
     `price` BIGINT UNSIGNED NOT NULL
 );
-CREATE TABLE `permission_role`(
+CREATE TABLE if not exists `permission_role`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `permission_id` BIGINT UNSIGNED NOT NULL,
     `role_id` BIGINT UNSIGNED NOT NULL
@@ -76,17 +81,17 @@ ALTER TABLE
     `permission_role` ADD INDEX `permission_role_permission_id_index`(`permission_id`);
 ALTER TABLE
     `permission_role` ADD INDEX `permission_role_role_id_index`(`role_id`);
-CREATE TABLE `permission`(
+CREATE TABLE if not exists `permission`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` text NOT NULL
+    `name` VARCHAR(255) NOT NULL,
+    unique (`name`)
 );
-CREATE TABLE `language`(
+CREATE TABLE if not exists `language`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` TEXT NOT NULL
+    `name` VARCHAR(255) NOT NULL,
+    unique (`name`)
 );
-ALTER TABLE
-    `language` ADD CONSTRAINT `unique_name` UNIQUE (`name`(255));
-CREATE TABLE `rating`(
+CREATE TABLE if not exists `rating`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` BIGINT UNSIGNED NOT NULL,
     `movie_id` BIGINT UNSIGNED NOT NULL,
@@ -96,7 +101,7 @@ ALTER TABLE
     `rating` ADD INDEX `rating_user_id_index`(`user_id`);
 ALTER TABLE
     `rating` ADD INDEX `rating_movie_id_index`(`movie_id`);
-CREATE TABLE `session`(
+CREATE TABLE if not exists `session`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `movie_id` BIGINT UNSIGNED NOT NULL,
     `address_id` BIGINT UNSIGNED NOT NULL,
@@ -106,16 +111,16 @@ ALTER TABLE
     `session` ADD INDEX `session_movie_id_index`(`movie_id`);
 ALTER TABLE
     `session` ADD INDEX `session_address_id_index`(`address_id`);
-CREATE TABLE `address`(
+CREATE TABLE if not exists `address`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `type_id` BIGINT UNSIGNED NOT NULL,
-    `address` LONGTEXT NOT NULL,
-    `address2` LONGTEXT NULL,
-    `district` LONGTEXT NULL,
+    `address` VARCHAR(255) NOT NULL,
+    `address2` VARCHAR(255) NOT NULL,
+    `district` VARCHAR(255) NULL,
     `city_id` BIGINT UNSIGNED NOT NULL,
     `postale_code` varchar(10) NULL,
     `phone` BIGINT UNSIGNED NULL,
-    `location` GEOMETRY NOT NULL
+    `location` GEOMETRY NULL
 );
 ALTER TABLE
     `address` ADD INDEX `address_type_index`(`type_id`);
@@ -125,20 +130,19 @@ ALTER TABLE
     `address` ADD INDEX `address_city_id_index`(`city_id`);
 ALTER TABLE
     `address` ADD INDEX `address_postale_code_index`(`postale_code`);
-CREATE TABLE `address_type`(
+CREATE TABLE if not exists `address_type`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `type` TEXT(255) NOT NULL
+    `type` VARCHAR(255) NOT NULL,
+    unique (`type`)
 );
-ALTER TABLE `address_type`
-ADD CONSTRAINT `unique_type` UNIQUE (`type`(255));
-create table `hall` (
+create table if not exists `hall` (
 	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `address_id`  BIGINT UNSIGNED NOT NULL,
-    `title` TEXT
+    `title` VARCHAR(255)
 );
 alter table
 `hall` add constraint `hall_address_id_foreign` foreign key(`address_id`) references `address`(`id`);
-create table `seat` (
+create table if not exists `seat` (
 	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `hall_id` BIGINT UNSIGNED NOT NULL,
     `type`  BIGINT UNSIGNED NOT NULL,
@@ -147,31 +151,45 @@ create table `seat` (
     );
 create table `seat_type`(
 	 `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-     `type` TEXT NOT NULL
+     `type` VARCHAR(255) NOT NULL,
+     unique (`type`)
 );
 alter table
 `seat` add constraint `seat_type_id_foreign` foreign key(`type`) references `seat_type`(`id`);
 alter table
 `seat` add constraint `seat_hall_id_foreign` foreign key(`hall_id`) references `hall`(`id`);
-CREATE TABLE `city` (
+CREATE TABLE if not exists `city` (
 	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` TEXT(255) NOT NULL
+    `name` VARCHAR(255) NOT NULL,
+    unique (`name`)
 );
-CREATE TABLE `actor`(
+CREATE TABLE if not exists `actor`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `first_name` LONGTEXT NOT NULL,
-    `last_name` LONGTEXT NOT NULL
+    `first_name` VARCHAR(255) NOT NULL,
+    `last_name` VARCHAR(255) NOT NULL,
+    constraint first_lastname_un unique (`first_name`, `last_name`)
 );
-ALTER TABLE `city`
-ADD CONSTRAINT `unique_name` UNIQUE (`name`(255));
-ALTER TABLE `genre`
-ADD CONSTRAINT `unique_genre` UNIQUE (`genre`(255));
-ALTER TABLE `permission`
-ADD CONSTRAINT `unique_name` UNIQUE (`name`(255));
-ALTER TABLE `role`
-ADD CONSTRAINT `unique_name` UNIQUE (`name`(255));
-ALTER TABLE `seat_type`
-ADD CONSTRAINT `unique_type` UNIQUE (`type`(255));
+create table if not exists `poster_type` (
+	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `type` VARCHAR(255) not null,
+    unique (`type`)
+);
+create table if not exists `poster` (
+	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `type` BIGINT UNSIGNED NOT NULL,
+    `url` VARCHAR(255) not null,
+    unique (`url`),
+    foreign key (`type`) references `poster_type`(`id`)
+);
+create table if not exists `movie_poster` (
+	`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`movie_id` BIGINT UNSIGNED NOT NULL,
+    `poster_id` BIGINT UNSIGNED NOT NULL,
+    constraint movie_poster_un unique (`movie_id`, `poster_id`),
+    foreign key (`movie_id`) references `movie`(`id`),
+    foreign key (`poster_id`) references `poster`(`id`)
+);
+
 
 ALTER TABLE
     `actor` ADD INDEX `actor_first_name_index`(`first_name`(255));

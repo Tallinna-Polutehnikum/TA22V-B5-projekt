@@ -20,7 +20,7 @@ export default class Hall extends Model {
       field: 'address_id'
     },
     title: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {

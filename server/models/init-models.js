@@ -11,8 +11,11 @@ import _Hall from  "./hall.js";
 import _Language from  "./language.js";
 import _Movie from  "./movie.js";
 import _MovieGenre from  "./movieGenre.js";
+import _MoviePoster from  "./moviePoster.js";
 import _Permission from  "./permission.js";
 import _PermissionRole from  "./permissionRole.js";
+import _Poster from  "./poster.js";
+import _PosterType from  "./posterType.js";
 import _Rating from  "./rating.js";
 import _Role from  "./role.js";
 import _Seat from  "./seat.js";
@@ -34,8 +37,11 @@ export default function initModels(sequelize) {
   const Language = _Language.init(sequelize, DataTypes);
   const Movie = _Movie.init(sequelize, DataTypes);
   const MovieGenre = _MovieGenre.init(sequelize, DataTypes);
+  const MoviePoster = _MoviePoster.init(sequelize, DataTypes);
   const Permission = _Permission.init(sequelize, DataTypes);
   const PermissionRole = _PermissionRole.init(sequelize, DataTypes);
+  const Poster = _Poster.init(sequelize, DataTypes);
+  const PosterType = _PosterType.init(sequelize, DataTypes);
   const Rating = _Rating.init(sequelize, DataTypes);
   const Role = _Role.init(sequelize, DataTypes);
   const Seat = _Seat.init(sequelize, DataTypes);
@@ -71,12 +77,18 @@ export default function initModels(sequelize) {
   Movie.hasMany(ActorMovie, { as: "actorMovies", foreignKey: "movieId"});
   MovieGenre.belongsTo(Movie, { as: "movie", foreignKey: "movieId"});
   Movie.hasMany(MovieGenre, { as: "movieGenres", foreignKey: "movieId"});
+  MoviePoster.belongsTo(Movie, { as: "movie", foreignKey: "movieId"});
+  Movie.hasMany(MoviePoster, { as: "moviePosters", foreignKey: "movieId"});
   Rating.belongsTo(Movie, { as: "movie", foreignKey: "movieId"});
   Movie.hasMany(Rating, { as: "ratings", foreignKey: "movieId"});
   Session.belongsTo(Movie, { as: "movie", foreignKey: "movieId"});
   Movie.hasMany(Session, { as: "sessions", foreignKey: "movieId"});
   PermissionRole.belongsTo(Permission, { as: "permission", foreignKey: "permissionId"});
   Permission.hasMany(PermissionRole, { as: "permissionRoles", foreignKey: "permissionId"});
+  MoviePoster.belongsTo(Poster, { as: "poster", foreignKey: "posterId"});
+  Poster.hasMany(MoviePoster, { as: "moviePosters", foreignKey: "posterId"});
+  Poster.belongsTo(PosterType, { as: "typePosterType", foreignKey: "type"});
+  PosterType.hasMany(Poster, { as: "posters", foreignKey: "type"});
   PermissionRole.belongsTo(Role, { as: "role", foreignKey: "roleId"});
   Role.hasMany(PermissionRole, { as: "permissionRoles", foreignKey: "roleId"});
   UserRole.belongsTo(Role, { as: "role", foreignKey: "roleId"});
@@ -102,8 +114,11 @@ export default function initModels(sequelize) {
     Language,
     Movie,
     MovieGenre,
+    MoviePoster,
     Permission,
     PermissionRole,
+    Poster,
+    PosterType,
     Rating,
     Role,
     Seat,
