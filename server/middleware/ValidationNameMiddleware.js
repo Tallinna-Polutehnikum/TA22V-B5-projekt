@@ -1,10 +1,10 @@
 import BussinesError from "../error/BussinesError";
 
-export default function validateId(id) {
-  let varName = nameOf(id);
-  if (!id) {
+export default function validateName(name) {
+  let varName = name(name);
+  if (!name) {
     throw new BussinesError.notFound(varName);
-  } else if (isNaN(Number(id)) && id % 1!== 0) {
+  } else if (typeof name !== 'string') {
     throw new BussinesError.invalidDataType(varName);
   }
 }

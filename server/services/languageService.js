@@ -1,19 +1,16 @@
-import LanguageRepository from "../repositories/languageRepository";
-import BussinesError from "../error/BussinesError";
 import DataBaseError from "../error/DataBaseError";
-import { validateId, validateName } from "../middleware/ValidationIdMiddleware";
+import { validateId } from "../middleware/ValidationIdMiddleware";
+import { validateName } from "../middleware/ValidationNameMiddleware";
 
 export default class LanguageService {
-  constructor(LanguageRepository) {
-    this.languageRepository = LanguageRepository;
+  constructor(languageRepository) {
+    this.languageRepository = languageRepository;
   }
 
   async getLanguage(id) {
-    if (typeof id === 'number' && Number.isInteger(id)) {   //ПРИСМОТРЕТЬСЯ - надо заменить обратной логикой в мидлвейр
-      validateId(id);
-      const language = await languageRepository.findByPk(id);
-      if (!language) throw new DataBaseError;
-    }
+    validateId(id);
+    const language = await languageRepository.findByPk(id);
+    if (!language) throw new DataBaseError;
 
     return language;
   }
@@ -33,14 +30,16 @@ export default class LanguageService {
   }
 
   async updateLanguage(id, name) {
+    validateId(id);
+    validateName(name);
     if (!id) throw new DataBaseError;
-
     if (!name) throw new DataBaseError;
 
     return await languageRepository.update(id, name);
   }
 
   async deleteLanguage(id) {
+    validateId(id);
     if (!id) throw new DataBaseError;
 
     return await languageRepository.dalete(id);

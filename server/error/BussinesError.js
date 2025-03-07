@@ -15,6 +15,11 @@ export default class BussinesError extends Error     //universal bussines logic 
         return new BussinesError(message, addition);
     }
 
+    static alreadyExists(message){
+        const addition = 'already exists';
+        return new BussinesError(message, addition);
+    }
+
     static accessDenied(message) {
         const addition = "access denied";
         return new BussinesError(message, addition);

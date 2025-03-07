@@ -1,8 +1,13 @@
 import ApiError from "../error/ApiError.js";
 import Language from "../models/language.js";
+import LanguageRepository from "../repositories/languageRepository.js";
+import LanguageService from "../services/languageService.js";
 
 
 class LanguageController {
+    const languageRepository = new LanguageRepository(Language);
+    const languageService = new LanguageService(LanguageRepository);
+
     async create(req, res) {
         const { name } = req.body
         const language = await Language.create({ name })

@@ -1,8 +1,8 @@
-import Language from "../models/language"
 import logger from "../utils/logger";
 
 export default class LanguageRepository {
-    constructor() {
+    constructor(model) {
+        this.model = model;
         this.cache = new Map(); //create a map object with cache 
     }
 
@@ -12,7 +12,7 @@ export default class LanguageRepository {
             return this.cache.get(id);
         }
 
-        const language = await Language.findByPk(id);
+        const language = await this.model.findByPk(id);
         if (language) { // if not null, not undefined, not a ''...
             this.cache.set(id, language);
         }
@@ -28,7 +28,7 @@ export default class LanguageRepository {
             return this.cache.get('all');
         }
 
-        const languages = await Language.findAll();
+        const languages = await this.model.findAll();
         this.cache.set('all', languages);
 
         logger.info(`DB query: findAll`);
@@ -38,7 +38,7 @@ export default class LanguageRepository {
 
     async create(data) {
 
-        const language = await Language.create({ data });
+        const language = await this.model.create({ data });
         console.log('language added');
         this.cache.set(language.id, language);
 

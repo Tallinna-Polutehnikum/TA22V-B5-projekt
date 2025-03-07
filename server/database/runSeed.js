@@ -12,6 +12,13 @@ async function runSeed() {
         // 2. models initialization
         const models = initModels(sequelize);
 
+        // // 3. очистка базы данных
+        // await sequelize.drop(); // Удаляет все таблицы
+
+        // const sql = fs.readFileSync('./database/Apollo1_2024_11_23.sql', 'utf8'); // Читаем SQL-скрипт из файла
+        // //console.log('console' + sql);
+        // await sequelize.query(sql);
+
         // 3. sync models with DB (optionsl)
         await sequelize.sync(); 
 
