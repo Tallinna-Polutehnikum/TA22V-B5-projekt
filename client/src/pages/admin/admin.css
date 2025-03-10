@@ -2,18 +2,6 @@ body {
     background-color: #161616;
 }
 
-nav {
-    background-color: #363636;
-}
-
-nav .container{
-    max-width: 100vmax;
-}
-
-.navbar-nav .nav-link {
-    color: #fff;
-    opacity: 1;
-}
 
 .navbar-brand {
     margin-left: 20px;
@@ -32,15 +20,6 @@ hr {
     opacity: 1;
 }
 
-input::placeholder { 
-    color: #fff;
-    opacity: 1; /* Firefox */
-}
-
-input[type="search"] {
-    width: 300px;
-}
-
 /* changing the color palette */
 :root {
     --bs-dark: #171717;
@@ -57,51 +36,36 @@ div.main-absolute {
     padding-top: 32px; */
 } 
 
-/* Style the sidebar - fixed full height */
-.sidebar {
-    height: 100%;
-    width: 230px;
-    position: fixed;
-    z-index: 1;
-    top: auto;
-    left: 0;
-    background-color: #262626;
-    overflow-x: hidden;
-    padding-top: 20px;
-}
 
 /* Style sidebar links */
-.sidebar a {
-    padding: 0px 20px 8px 25px;
+#sidebar a {
+    padding: 0px 20px 8px 0px;
     text-decoration: none;
     font-size: 15px;
     color: #fff;
     display: block;
 }
 
-.no-bullets {
-    list-style-type: none;
-    padding-top: 10px;
-}
 
 .sidebar a .float-right{
     float:right;
 }
 
-/* Style links on mouse-over */
-.sidebar a:hover {
-    color: #999;
-    transition: 0.2s;
-}
-
 /* Style the main content */
-.main {
-    margin-left: 160px; /* Same as the width of the sidenav */
+/* .main {
+    margin-left: 160px; /*Same as the width of the sidenav
     padding: 0px 10px;
-}
+} 
+*/
 
-.sidebar footer {
-    background-color: #363636;
+body main div#sidebar.sidebar footer#logofooter {
+    background-color: #444;
+    width: 230px;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block
 }
 
 /* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
@@ -109,37 +73,57 @@ div.main-absolute {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
 }
-/* 
-.text {
-    color: #fff;
-    opacity: 1;
+
+
+
+/* ======================================== */
+/* ======================================== */
+/* ======================================== */
+
+
+
+body {
+    background-color: #373737;
 }
 
-:root {
-    --bs-dark: #171717;
-    --bs-dark-rgb: 23,23,23;
+.app-container {
+    display: flex;
+    height: 100vh;
 }
 
-div input.text-white{
-    margin: 0px 0px 12px 10px;
-    width: 250px;
+/* Style the sidebar - fixed full height */
+#sidebar {
+    height: 100%;
+    width: 230px;
+    position: fixed;
+    z-index: 1;
+    top: 49px;
+    left: 0;
+    background-color: #161616;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+body div main.main div div#sidebar.sidebar > ul > li{
+    margin-top: 10px;
 }
 
 
-.nav-link {
-    color: #fff;
-    opacity: 1;
-    font-size: 20px;
-    padding: 0.5rem 1rem;
+
+body div main.main div div#sidebar.sidebar ul {
+    padding-left: 0.5rem !important;
+    list-style-type: none;
 }
 
-a.nav-link:hover{
-    color: #999;
-    transition: 0.2s;
+.nav-link svg {
+    margin-right: 10px;
 }
 
-.container-fluid {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 1600px;
-  } */
+.collapse {display: none;}
+
+.show {display: block;}
+
+.content {
+    margin-left: 230px;    /* Same as the width of the sidenav */
+    padding: 20px;
+}
