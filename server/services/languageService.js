@@ -3,14 +3,14 @@ import { validateId } from "../middleware/ValidationIdMiddleware";
 import { validateName } from "../middleware/ValidationNameMiddleware";
 
 export default class LanguageService {
-  constructor(languageRepository) {
-    this.languageRepository = languageRepository;
+  constructor(repository) {
+    this.languageRepository = repository;
   }
 
   async getLanguage(id) {
     validateId(id);
     const language = await languageRepository.findByPk(id);
-    if (!language) throw new DataBaseError;
+    if (!language) throw new DataBaseError();
 
     return language;
   }
@@ -24,7 +24,6 @@ export default class LanguageService {
 
   async createLanguage(name) {
     validateName(name);
-    if (!name) throw new DataBaseError;
 
     return await languageRepository.create(name);
   }
@@ -32,8 +31,6 @@ export default class LanguageService {
   async updateLanguage(id, name) {
     validateId(id);
     validateName(name);
-    if (!id) throw new DataBaseError;
-    if (!name) throw new DataBaseError;
 
     return await languageRepository.update(id, name);
   }

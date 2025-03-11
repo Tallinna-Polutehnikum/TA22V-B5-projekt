@@ -1,9 +1,20 @@
+import DataBaseError from "../error/DataBaseError";
 import logger from "../utils/logger";
 
 export default class LanguageRepository {
+
+    static cache = new Map();   //create a map object with cache 
+    static cacheState = null;  
+    
     constructor(model) {
         this.model = model;
-        this.cache = new Map(); //create a map object with cache 
+
+        if(!LanguageRepository.cacheState){    //if null
+            LanguageRepository.cacheState = LanguageRepository.cache;
+        }
+
+        this.cache = LanguageRepository.cacheState;
+        
     }
 
     async findByPk(id) {
@@ -15,6 +26,8 @@ export default class LanguageRepository {
         const language = await this.model.findByPk(id);
         if (language) { // if not null, not undefined, not a ''...
             this.cache.set(id, language);
+        } else{
+            return DataBaseError.getMessage(`${nameOf(language)} not found`);
         }
 
         logger.info(`DB query: findById(${id})`);
@@ -49,9 +62,7 @@ export default class LanguageRepository {
 
     async update(id, newData) {
 
-        const language = await findByPk(id);
-        if (!language) return null; //if null, undefined, ''...
-
+        const language = await this.findByPk(id);
         await language.update(newData);
         this.cache.set(language.id, language);
 
@@ -62,9 +73,7 @@ export default class LanguageRepository {
 
     async delete(id) {
 
-        const language = await findByPk(id);
-        if (!language) return null; //if null, undefined, ''...
-
+        const language = await this.findByPk(id);
         await language.destroy();
         this.cache.delete(id);
 
