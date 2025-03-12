@@ -1,5 +1,6 @@
-export default class BussinesError extends Error     //universal bussines logic error
-{
+//universal bussines logic error using in middleware
+
+export default class BussinesError extends Error {
     constructor(message, addition) {
         super();
         this.message = message + addition;
@@ -15,7 +16,7 @@ export default class BussinesError extends Error     //universal bussines logic 
         return new BussinesError(message, addition);
     }
 
-    static alreadyExists(message){
+    static alreadyExists(message) {
         const addition = 'already exists';
         return new BussinesError(message, addition);
     }

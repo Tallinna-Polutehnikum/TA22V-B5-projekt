@@ -1,5 +1,6 @@
-export default class DataBaseError extends Error    //used for repositories
-{
+//used in services for DB error marking
+
+export default class DataBaseError extends Error {
     constructor(message) {
         super();
         this.message = 'DB error: ' + message;

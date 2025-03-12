@@ -1,6 +1,7 @@
 import DataBaseError from "../error/DataBaseError";
 import { validateId } from "../middleware/ValidationIdMiddleware";
 import { validateName } from "../middleware/ValidationNameMiddleware";
+import logger from "../utils/logger";
 
 export default class LanguageService {
   constructor(repository) {
@@ -9,23 +10,42 @@ export default class LanguageService {
 
   async getLanguage(id) {
     validateId(id);
-    const language = await languageRepository.findByPk(id);
-    if (!language) throw new DataBaseError();
 
-    return language;
+    try {
+      const language = await languageRepository.findByPk(id);
+      if (!language) throw new DataBaseError.getMessage(`${name(language)} not found`);
+
+      logger.info(`language returned`);
+      return language;
+    } catch (error) {
+      logger.error(error);
+    }
   }
 
   async getLanguages() {
-    const languages = await languageRepository.findAll();
-    if (!languages) throw new DataBaseError;
 
-    return languages;
+    try {
+      const languages = await languageRepository.findAll();
+      if (!languages) throw new DataBaseError.getMessage(`${name(languages)} not found`);
+
+      return languages;
+    } catch (error) {
+      logger.error(error);
+    }
   }
 
-  async createLanguage(name) {
+  async createLanguage(name) {  //may be exists check
     validateName(name);
 
-    return await languageRepository.create(name);
+    try {
+      const language = await languageRepository.create(name);
+      if (!language) throw new DataBaseError.getMessage(`${name(language)} not been created`);
+
+      logger.info(`${language} added to DB`)
+      return language;
+    } catch (error) {
+      logger.error(error);
+    }
   }
 
   async updateLanguage(id, name) {

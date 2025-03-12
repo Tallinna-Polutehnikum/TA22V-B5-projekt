@@ -1,21 +1,23 @@
-import DataBaseError from "../error/DataBaseError";
 import logger from "../utils/logger";
 
 export default class LanguageRepository {
 
     static cache = new Map();   //create a map object with cache 
-    static cacheState = null;  
-    
+    static cacheState = null;
+
     constructor(model) {
         this.model = model;
 
-        if(!LanguageRepository.cacheState){    //if null
+        if (!LanguageRepository.cacheState) {    //if null
             LanguageRepository.cacheState = LanguageRepository.cache;
         }
 
         this.cache = LanguageRepository.cacheState;
-        
+
     }
+
+    //ORM FUNCTIONS IS ANY!!!
+
 
     async findByPk(id) {
 
@@ -26,9 +28,9 @@ export default class LanguageRepository {
         const language = await this.model.findByPk(id);
         if (language) { // if not null, not undefined, not a ''...
             this.cache.set(id, language);
-        } else{
-            return DataBaseError.getMessage(`${nameOf(language)} not found`);
-        }
+        } //else {
+        //     return DataBaseError.getMessage(`${nameOf(language)} not found`);
+        // }
 
         logger.info(`DB query: findById(${id})`);
         return language;
@@ -42,18 +44,22 @@ export default class LanguageRepository {
         }
 
         const languages = await this.model.findAll();
-        this.cache.set('all', languages);
+        if (languages) {
+            this.cache.set('all', languages);
+        } //else {
+        //     return DataBaseError.getMessage(`${nameOf(languages)} not found`);
+        // }
 
         logger.info(`DB query: findAll`);
         return languages;
 
     }
 
-    async create(data) {
+    async create(data) {    //just add errorHandler, dont need duble check
 
         const language = await this.model.create({ data });
-        console.log('language added');
-        this.cache.set(language.id, language);
+        // this.cache.set(language.id, language);
+        //console.log(`${nameOf(language)} added`);
 
         logger.info(`DB query: create(${data})`);
         return language;
