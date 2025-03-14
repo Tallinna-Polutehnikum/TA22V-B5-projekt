@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 import logger from "../utils/logger";
 
 export default class LanguageRepository {
@@ -55,7 +56,7 @@ export default class LanguageRepository {
 
     }
 
-    async create(data) {    //just add errorHandler, dont need duble check
+    async create(data) {
 
         const language = await this.model.create({ data });
         // this.cache.set(language.id, language);
@@ -66,24 +67,46 @@ export default class LanguageRepository {
 
     }
 
-    async update(id, newData) {
+    async update(model_id, newName) {   //have not response
 
-        const language = await this.findByPk(id);
-        await language.update(newData);
-        this.cache.set(language.id, language);
+        // if (this.cache.has(model_id)) {
+        //     return this.cache.get(model_id);
+        // }
+        
+        const language = await this.model.findByPk(model_id);
 
-        logger.info(`DB query: update(${id, newData})`);
+        if (language) {
+            await language.set({name: newName});
+            await language.save();
+
+            this.cache.set(language.id, language);
+            
+        }
+        
+        //const language1 = await this.model.update({ name: newName }, { where: {id: model_id}, returning: true });
+
+        logger.info(`DB query: update language ${model_id} with ${newName})`);
         return language;
 
     }
 
-    async delete(id) {
+    async delete(id) {  //may have response
 
-        const language = await this.findByPk(id);
-        await language.destroy();
-        this.cache.delete(id);
-
+        const language = await this.model.findByPk(id);
         logger.info(`DB query: delete(${id})`);
+
+        if (language) {
+            const numDestroyedRows = await language.destroy();
+            this.cache.delete(id);
+
+            if (numDestroyedRows > 0) {
+                logger.info(`language with id ${id} deleted`);
+            } else{
+
+            }
+            
+        }
+        
         return true;    //confirms deletion (for bussines logic)
 
     }

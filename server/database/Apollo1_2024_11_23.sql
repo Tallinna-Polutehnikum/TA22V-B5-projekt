@@ -5,11 +5,10 @@ CREATE TABLE if not exists `movie`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `title` varchar(255) NOT NULL,
     `rating` INT NULL default 0,
-    `description` LONGTEXT NOT NULL,
+    `description` varchar(255) NOT NULL,
     `year` DATE ,
     `language_id` BIGINT UNSIGNED, 
-    `sublang_id` BIGINT UNSIGNED,
-    `image` longblob
+    `sublang_id` BIGINT UNSIGNED
 );
 ALTER TABLE
     `movie` ADD INDEX `movie_year_index`(`year`);

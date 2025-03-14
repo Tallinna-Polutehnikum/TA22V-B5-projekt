@@ -8,7 +8,7 @@
     "seed": "node --experimental-modules database/runSeed.js",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "models": "npx sequelize-auto -h localhost -d apollo -u root -x Passw0rd -p 3306 --dialect mysql -o ./models --cm p --cp c --cf c -l esm"
+    "models": "npx sequelize-auto -h host -d db_name -u user -x password -p 3306 --dialect mysql -o ./models --cm p --cp c --cf c -l esm"
   },
   "keywords": [],
   "author": "",
