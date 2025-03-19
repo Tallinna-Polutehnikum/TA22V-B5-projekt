@@ -5,6 +5,7 @@ import LanguageService from "../services/languageService.js";
 
 
 class LanguageController {
+    
     languageRepository = new LanguageRepository(Language);
     languageService = new LanguageService(this.languageRepository);
 
@@ -29,7 +30,7 @@ class LanguageController {
     async create(req, res) {
 
         const { name } = req.body;
-        const language = await this.languageService.createLanguage({ name });
+        const language = await this.languageService.createLanguage(name);
 
         return res.json(language);
 
@@ -38,14 +39,14 @@ class LanguageController {
     async change(req, res) {
 
         const { id, name } = req.body;
-        await this.languageService.updateLanguage({ id, name });
+        await this.languageService.updateLanguage(id, name);
 
     };
 
     async delete(req, res) {
 
-        const {id} = req.body;
-        await this.languageService.deleteLanguage({id});
+        const { id } = req.body;
+        await this.languageService.deleteLanguage(id);
         
     };
 }

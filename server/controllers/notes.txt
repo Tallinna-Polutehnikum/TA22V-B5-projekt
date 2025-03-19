@@ -1,0 +1,15 @@
+Need to get from db:
+    movies
+    posters
+    actors
+    genres
+
+    
+    sessions
+    seats
+    languages
+
+    tickets
+    users
+    permissions
+    

@@ -1,7 +1,7 @@
 import { where } from "sequelize";
 import logger from "../utils/logger";
 
-export default class LanguageRepository {
+export default class PosterRepository {
 
     static cache = new Map();   //create a map object with cache 
     static cacheState = null;
@@ -9,11 +9,11 @@ export default class LanguageRepository {
     constructor(model) {
         this.model = model;
 
-        if (!LanguageRepository.cacheState) {    //if null
-            LanguageRepository.cacheState = LanguageRepository.cache;
+        if (!PosterRepository.cacheState) {    //if null
+            PosterRepository.cacheState = PosterRepository.cache;
         }
 
-        this.cache = LanguageRepository.cacheState;
+        this.cache = PosterRepository.cacheState;
 
     }
 
@@ -28,12 +28,12 @@ export default class LanguageRepository {
 
         logger.info(`DB query: findById(${id})`);
 
-        const language = await this.model.findByPk(id);
-        if (language) { // if not null, not undefined, not a ''...
-            this.cache.set(id, language);
+        const poster = await this.model.findByPk(id);
+        if (poster) { // if not null, not undefined, not a ''...
+            this.cache.set(id, poster);
         }
 
-        return language;
+        return poster;
 
     }
 
@@ -45,12 +45,12 @@ export default class LanguageRepository {
 
         logger.info(`DB query: findAll`);
 
-        const languages = await this.model.findAll();
-        if (languages) {
-            this.cache.set('all', languages);
+        const posters = await this.model.findAll();
+        if (posters) {
+            this.cache.set('all', posters);
         }
 
-        return languages;
+        return posters;
 
     }
 
@@ -58,49 +58,49 @@ export default class LanguageRepository {
 
         logger.info(`DB query: create(${data})`);
 
-        const language = await this.model.create(data);
-        // this.cache.set(language.id, language);
-        //console.log(`${nameOf(language)} added`);
+        const poster = await this.model.create(data);
+        // this.cache.set(poster.id, poster);
+        //console.log(`${nameOf(poster)} added`);
 
-        return language;
+        return poster;
 
     }
 
     async update(model_id, newName) {   //have not response
 
-        const language = await this.model.findByPk(model_id);
-        logger.info(`DB query: update language ${model_id} with ${newName})`);
+        const poster = await this.model.findByPk(model_id);
+        logger.info(`DB query: update poster ${model_id} with ${newName})`);
 
-        if (language) {
+        if (poster) {
 
-            await language.set({ name: newName });
-            await language.save();
+            await poster.set({ name: newName });
+            await poster.save();
 
-            this.cache.set(language.id, language);
-            logger.info(`language with id ${model_id} updated successfuly`)
-            return language;
+            this.cache.set(poster.id, poster);
+            logger.info(`poster with id ${model_id} updated successfuly`)
+            return poster;
 
         } else {
-            logger.error(`language not found`)
+            logger.error(`poster not found`)
         }
 
     }
 
     async delete(id) {  //may have response
 
-        const language = await this.model.findByPk(id);
+        const poster = await this.model.findByPk(id);
         logger.info(`DB query: delete(${id})`);
 
-        if (language) {
-            const numDestroyedRows = await language.destroy();
+        if (poster) {
+            const numDestroyedRows = await poster.destroy();
             this.cache.delete(id);
 
             if (numDestroyedRows > 0) {
-                logger.info(`language with id ${id} deleted successfuly`);
+                logger.info(`poster with id ${id} deleted successfuly`);
                 return true;
 
             } else {
-                logger.error(`language with id ${id} not been deleted`);
+                logger.error(`poster with id ${id} not been deleted`);
                 return false;
 
             }

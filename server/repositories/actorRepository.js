@@ -1,7 +1,7 @@
 import { where } from "sequelize";
 import logger from "../utils/logger";
 
-export default class LanguageRepository {
+export default class ActorRepository {
 
     static cache = new Map();   //create a map object with cache 
     static cacheState = null;
@@ -9,11 +9,11 @@ export default class LanguageRepository {
     constructor(model) {
         this.model = model;
 
-        if (!LanguageRepository.cacheState) {    //if null
-            LanguageRepository.cacheState = LanguageRepository.cache;
+        if (!ActorRepository.cacheState) {    //if null
+            ActorRepository.cacheState = ActorRepository.cache;
         }
 
-        this.cache = LanguageRepository.cacheState;
+        this.cache = ActorRepository.cacheState;
 
     }
 
@@ -28,12 +28,12 @@ export default class LanguageRepository {
 
         logger.info(`DB query: findById(${id})`);
 
-        const language = await this.model.findByPk(id);
-        if (language) { // if not null, not undefined, not a ''...
-            this.cache.set(id, language);
+        const actor = await this.model.findByPk(id);
+        if (actor) { // if not null, not undefined, not a ''...
+            this.cache.set(id, actor);
         }
 
-        return language;
+        return actor;
 
     }
 
@@ -45,12 +45,12 @@ export default class LanguageRepository {
 
         logger.info(`DB query: findAll`);
 
-        const languages = await this.model.findAll();
-        if (languages) {
-            this.cache.set('all', languages);
+        const actors = await this.model.findAll();
+        if (actors) {
+            this.cache.set('all', actors);
         }
 
-        return languages;
+        return actors;
 
     }
 
@@ -58,49 +58,49 @@ export default class LanguageRepository {
 
         logger.info(`DB query: create(${data})`);
 
-        const language = await this.model.create(data);
-        // this.cache.set(language.id, language);
-        //console.log(`${nameOf(language)} added`);
+        const actor = await this.model.create(data);
+        // this.cache.set(actor.id, actor);
+        //console.log(`${nameOf(actor)} added`);
 
-        return language;
+        return actor;
 
     }
 
     async update(model_id, newName) {   //have not response
 
-        const language = await this.model.findByPk(model_id);
-        logger.info(`DB query: update language ${model_id} with ${newName})`);
+        const actor = await this.model.findByPk(model_id);
+        logger.info(`DB query: update actor ${model_id} with ${newName})`);
 
-        if (language) {
+        if (actor) {
 
-            await language.set({ name: newName });
-            await language.save();
+            await actor.set({ name: newName });
+            await actor.save();
 
-            this.cache.set(language.id, language);
-            logger.info(`language with id ${model_id} updated successfuly`)
-            return language;
+            this.cache.set(actor.id, actor);
+            logger.info(`actor with id ${model_id} updated successfuly`)
+            return actor;
 
         } else {
-            logger.error(`language not found`)
+            logger.error(`actor not found`)
         }
 
     }
 
     async delete(id) {  //may have response
 
-        const language = await this.model.findByPk(id);
+        const actor = await this.model.findByPk(id);
         logger.info(`DB query: delete(${id})`);
 
-        if (language) {
-            const numDestroyedRows = await language.destroy();
+        if (actor) {
+            const numDestroyedRows = await actor.destroy();
             this.cache.delete(id);
 
             if (numDestroyedRows > 0) {
-                logger.info(`language with id ${id} deleted successfuly`);
+                logger.info(`actor with id ${id} deleted successfuly`);
                 return true;
 
             } else {
-                logger.error(`language with id ${id} not been deleted`);
+                logger.error(`actor with id ${id} not been deleted`);
                 return false;
 
             }

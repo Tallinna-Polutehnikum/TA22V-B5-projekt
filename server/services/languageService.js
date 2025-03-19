@@ -9,11 +9,11 @@ export default class LanguageService {
   }
 
   async getLanguage(id) {
-
-    validateId(id);
-
+    
     try {
-      const language = await languageRepository.findByPk(id);
+      validateId(id);
+
+      const language = await this.languageRepository.findByPk(id);
       if (!language) throw new DataBaseError.getMessage(`language not found`);
 
       logger.info(`${language.name} returned`);
@@ -28,7 +28,7 @@ export default class LanguageService {
   async getLanguages() {
 
     try {
-      const languages = await languageRepository.findAll();
+      const languages = await this.languageRepository.findAll();
       if (!languages) throw new DataBaseError.getMessage(`languages not found`);
 
       logger.info(`languages returned`);
@@ -42,10 +42,10 @@ export default class LanguageService {
 
   async createLanguage(name) {  //may be exists check
 
-    validateName(name);
-
     try {
-      const language = await languageRepository.create(name);
+      validateName(name);
+
+      const language = await this.languageRepository.create(name);
       if (!language) throw new DataBaseError.getMessage(`language not been created`);
 
       logger.info(`${language.name} added to DB`);
@@ -58,14 +58,14 @@ export default class LanguageService {
   }
 
   async updateLanguage(id, name) {
-    
+
     try {
       validateId(id);
       validateName(name);
 
-      const language = await languageRepository.update(id, name);
+      const language = await this.languageRepository.update(id, name);
       if (!language) throw new DataBaseError.getMessage(`language not been updated`);
-      
+
     } catch (error) {
       logger.error(error);
     }
@@ -76,15 +76,15 @@ export default class LanguageService {
 
     try {
       validateId(id);
-      
-      if (!id) throw new DataBaseError;
+
+      deleted = await this.languageRepository.delete(id)
+      if (!deleted) throw new DataBaseError.getMessage(`language not found`);
+      await this.languageRepository.clearCache(id)
 
     } catch (error) {
-      
+      logger.error(error);
     }
 
-    return await languageRepository.delete(id);
-    
   }
 
 }
