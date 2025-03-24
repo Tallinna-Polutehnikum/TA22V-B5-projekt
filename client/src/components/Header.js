@@ -28,7 +28,7 @@ return (
 
       </Nav>
       <Nav className="me-2">
-        <Nav.Link href="/adminPage" id="signIn">
+        <Nav.Link href="/admin" id="signIn">
           <FontAwesomeIcon icon={faRightToBracket} size="xl"/>
 
         </Nav.Link>

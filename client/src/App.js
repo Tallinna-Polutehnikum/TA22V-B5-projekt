@@ -17,27 +17,31 @@ import './App.css';
 
 
 function App() {
-
+    
     return (
-        <Router>
-            <Header />
-            <main className="main">
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/about" element={<AboutPage />} />
-                    <Route path="/movie/:id" element={<MoviePage />} />
-                    <Route path="/movies" element={<MoviesPage />} />
-                    <Route path="/checkout" element={<CheckoutPage />} />
-                    <Route path="/account" element={<Account />} />
-                    <Route path="/adminPage" element={<AdminPage />} />
-                    <Route path="/admin/movieAdd" element={<MovieAdd />} />
-                    <Route path="/admin/MovieEdit" element={<MovieEdit />} />
-                </Routes>
-                {/* <a href="https://reactjs.org">Learn React</a> */}
-            </main>
-            <Footer />
-        </Router>
+      <Router>
+        <Header />
+        <main className="main">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/movie/:id" element={<MoviePage />} />
+            <Route path="/movies" element={<MoviesPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/admin/*" element={<AdminPage />} >
+              <Route index element={<MovieAdd />} />
+              <Route path="profile" element={<AboutPage />} />
+              <Route path="editprofile" element={<AboutPage />} />
+              <Route path="movieAdd" element={<MovieAdd />} />
+              <Route path="MovieEdit" element={<MovieEdit />} />
+            </Route>
+          </Routes>
+          {/* <a href="https://reactjs.org">Learn React</a> */}
+        </main>
+        <Footer />
+      </Router>
     );
-}
-
+  }
+  
 export default App;

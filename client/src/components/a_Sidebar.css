@@ -1,40 +1,11 @@
-body {
-    background-color: #161616;
-}
-
-
-.navbar-brand {
-    margin-left: 20px;
-    margin-right: 5px;
-}
-
-nav div .hr-dark{
-    color: #161616;
-    padding-bottom: 60px;
-    margin-block-start:0px;
-    margin-block-end: 0px;
-}
-
-hr {
-    color: #fff;
-    opacity: 1;
-}
-
-/* changing the color palette */
-:root {
-    --bs-dark: #171717;
-    --bs-dark-rgb: 23,23,23;
-}
-
-div.main-absolute {
+/* div.main-absolute {
     position: absolute;
     right:20px;
     left: 245px;
     bottom:20px; 
     top:60px;
-    /* top:78px;
-    padding-top: 32px; */
-} 
+    margin-left: 160px; /*Same as the width of the sidenav
+}  */
 
 
 /* Style sidebar links */
@@ -47,18 +18,7 @@ div.main-absolute {
 }
 
 
-.sidebar a .float-right{
-    float:right;
-}
-
-/* Style the main content */
-/* .main {
-    margin-left: 160px; /*Same as the width of the sidenav
-    padding: 0px 10px;
-} 
-*/
-
-body main div#sidebar.sidebar footer#logofooter {
+footer#logofooter {
     background-color: #444;
     width: 230px;
     height: 50px;
@@ -68,26 +28,12 @@ body main div#sidebar.sidebar footer#logofooter {
     display: block
 }
 
-/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
-@media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
-}
-
-
-
-/* ======================================== */
-/* ======================================== */
-/* ======================================== */
-
-
 
 body {
     background-color: #373737;
 }
 
 .app-container {
-    display: flex;
     height: 100vh;
 }
 
@@ -106,6 +52,10 @@ body {
 
 body div main.main div div#sidebar.sidebar > ul > li{
     margin-top: 10px;
+}
+
+.sidebar a svg:nth-child(2){
+    float:right;
 }
 
 
