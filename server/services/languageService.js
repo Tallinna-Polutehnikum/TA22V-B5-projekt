@@ -1,7 +1,7 @@
-import DataBaseError from "../error/DataBaseError";
-import { validateId } from "../middleware/ValidationIdMiddleware";
-import { validateName } from "../middleware/ValidationNameMiddleware";
-import logger from "../utils/logger";
+import DataBaseError from "../error/DataBaseError.js";
+import validateId from "../middleware/ValidationIdMiddleware.js";
+import validateName from "../middleware/ValidationNameMiddleware.js";
+import logger from "../utils/logger.js";
 
 export default class LanguageService {
   constructor(repository) {

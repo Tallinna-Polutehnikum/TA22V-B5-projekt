@@ -9,6 +9,7 @@ import router from './routes/index.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { createDatabase } from './database/dbmk.js';
+import logger from './utils/logger.js';
 
 import errorHandler from './middleware/ErrorHandlingMiddleware.js';
 
@@ -33,9 +34,9 @@ const start = async () => {
     try {
         await sequelize.authenticate()
         await sequelize.sync()
-        app.listen(PORT, () => console.log(`Server was started on port ${PORT}`));
+        app.listen(PORT, () => logger.info(`Server was started on port ${PORT}`));
     } catch (e) {
-        console.log(e)
+        logger.error(e)
     }
 };
 

@@ -1,4 +1,5 @@
-import winston from 'winston/lib/winston/config';
+import winston from 'winston';
+import path from 'path';
 
 const logger = winston.createLogger({
   level: 'info', // Logging messages with the level "info" and higher

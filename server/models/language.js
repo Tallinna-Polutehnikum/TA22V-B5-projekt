@@ -29,7 +29,7 @@ export default class Language extends Model {
         ]
       },
       {
-        name: "name",
+        name: "unique_name",
         unique: true,
         using: "BTREE",
         fields: [
@@ -37,7 +37,7 @@ export default class Language extends Model {
         ]
       },
       {
-        name: "unique_name",
+        name: "name",
         unique: true,
         using: "BTREE",
         fields: [

@@ -1,4 +1,4 @@
-import BussinesError from "../error/BussinesError";
+import BussinesError from "../error/BussinesError.js";
 
 export default function validateName(name) {
   let varName = name(name);

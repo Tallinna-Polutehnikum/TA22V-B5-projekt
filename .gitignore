@@ -33,3 +33,6 @@ client/cypress/videos/
 client/cypress/screenshots/
 client/cypress/downloads/
 client/cypress/results/
+
+#logs
+server/logs
