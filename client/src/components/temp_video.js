@@ -3,7 +3,7 @@ import React from 'react';
 const YouTubeEmbed = ({ videoId }) => {
   const containerStyle = {
     width: '100%',
-    /* Добавь дополнительные стили для контейнера, если нужно */
+    /* Add more if need */
   };
 
   return (
