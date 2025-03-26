@@ -9,11 +9,16 @@ class LanguageController {
     languageRepository = new LanguageRepository(Language);
     languageService = new LanguageService(this.languageRepository);
 
-    async getAll(req, res) {
+    async getAll(req, res, next) {
+        try {
+            const languages = await this.languageService.getLanguages();
+            
+            return res.json(languages);
+        } catch (error) {
+            next (error);
+        }
 
-        const languages = await this.languageService.getLanguages();
 
-        return res.json(languages);
 
     };
 

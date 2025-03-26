@@ -14,31 +14,32 @@ export default class LanguageService {
       validateId(id);
 
       const language = await this.languageRepository.findByPk(id);
-      if (!language) throw new DataBaseError.getMessage(`language not found`);
+      if (!language) throw DataBaseError.getMessage(`language not found`);
 
       logger.info(`${language.name} returned`);
       return language;
 
     } catch (error) {
       logger.error(error);
+      throw error;
     }
 
   }
 
-  async getLanguages() {
+    async getLanguages() {
 
-    try {
-      const languages = await this.languageRepository.findAll();
-      if (!languages) throw new DataBaseError.getMessage(`languages not found`);
+      try {
+        const languages = await this.languageRepository.findAll();
+        if (!languages) throw DataBaseError.getMessage(`languages not found`);
 
-      logger.info(`languages returned`);
-      return languages;
+        logger.info(`languages returned`);
+        return languages;
 
-    } catch (error) {
-      logger.error(error);
+      } catch (error) {
+        logger.error(error);
+      }
+
     }
-
-  }
 
   async createLanguage(name) {  //may be exists check
 
@@ -46,7 +47,7 @@ export default class LanguageService {
       validateName(name);
 
       const language = await this.languageRepository.create(name);
-      if (!language) throw new DataBaseError.getMessage(`language not been created`);
+      if (!language) throw DataBaseError.getMessage(`language not been created`);
 
       logger.info(`${language.name} added to DB`);
       return language;
@@ -64,7 +65,7 @@ export default class LanguageService {
       validateName(name);
 
       const language = await this.languageRepository.update(id, name);
-      if (!language) throw new DataBaseError.getMessage(`language not been updated`);
+      if (!language) throw DataBaseError.getMessage(`language not been updated`);
 
     } catch (error) {
       logger.error(error);
@@ -78,7 +79,7 @@ export default class LanguageService {
       validateId(id);
 
       deleted = await this.languageRepository.delete(id)
-      if (!deleted) throw new DataBaseError.getMessage(`language not found`);
+      if (!deleted) throw DataBaseError.getMessage(`language not found`);
       await this.languageRepository.clearCache(id)
 
     } catch (error) {
