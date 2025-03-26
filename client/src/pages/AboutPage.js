@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PopupVideo from '../components/pop_video';
+
+import YouTubeEmbed from '../components/temp_video'; 
+
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
+
 
 const AboutPage = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const videoId = 'dQw4w9WgXcQ';
+
+    const handleOpen = () => {
+      setIsOpen(true);
+    };
+  
+    const handleClose = () => {
+      setIsOpen(false);
+    };
     return (
         <div>
             <h1>About Us</h1>
@@ -24,7 +41,15 @@ const AboutPage = () => {
 <h4>The Future of the Project</h4>
 <p>As a student project, we are committed to creating a reliable website that not only meets but often exceeds the standards of existing platforms in terms of usability, design, functionality, and performance. We believe that our website will become an indispensable assistant for all movie lovers. Our team is dedicated to continuous improvement, ensuring that you have the best possible experience. Stay tuned for updates!</p>
 
+
+<button onClick={handleOpen}>Open trailer</button>
+<PopupVideo videoId={videoId} isOpen={isOpen} onClose={handleClose} />
+
 <p>Thank you for choosing us! We hope that our project brings you joy and convenience in the world of cinema.</p>
+        
+        
+      <YouTubeEmbed videoId={videoId} />
+      <LiteYouTubeEmbed id={videoId} title="trailer" />
         </div>
     );
 };

@@ -11,7 +11,7 @@ const AdminPage = () => {
     <div className="app-container">
       <Sidebar />
 
-      <div className="content">
+      <div className="content-admin_page">
         <Outlet />
 
       </div>

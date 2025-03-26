@@ -4,7 +4,6 @@
     left: 245px;
     bottom:20px; 
     top:60px;
-    margin-left: 160px; /*Same as the width of the sidenav
 }  */
 
 
@@ -73,7 +72,9 @@ body div main.main div div#sidebar.sidebar ul {
 
 .show {display: block;}
 
-.content {
-    margin-left: 230px;    /* Same as the width of the sidenav */
-    padding: 20px;
-}
+/* Media query for Small screens */
+@media (max-width: 1700px) {
+    .content-admin_page {
+        margin-left: 230px;
+    }
+  }

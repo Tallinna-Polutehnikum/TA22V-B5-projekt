@@ -96,3 +96,22 @@ new pages:
     18-02
         woah, nice idea (go & click on cinema ex.Capitol...)
         https://www.kinoheld.de/film/captain-america?mode=widget%23panel-seats 
+
+
+
+25-03
+    for movie/:1 page
+    issue with .main & 100%-w
+    ; .background-image {left: 0; z-index: -1; width: 100%; height: 500px; position: fixed; background-size: 100% 500px; background-image: url('https://picsum.photos/id/976/1920/500'); }
+    
+        
+    in package.json added styled_components check it https://styled-components.com/showcase
+    
+
+    ASK HENRY BOUT movie/ image. could get 100% but only as fixed bkgr
+
+
+  const favMovImages = [
+    'https://picsum.photos/id/976/5000/500',  // 5000x2901
+    'https://picsum.photos/id/696/200/300'    // 4310x2864
+  ];
