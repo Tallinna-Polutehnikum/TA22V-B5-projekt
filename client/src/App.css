@@ -17,6 +17,7 @@ body{
   min-height: calc(100dvh - var(--headerH));
   width: clamp(1px, var(--mw), var(--mmw)); 
   /*max-width: var(--mw);*/
+  padding: 20px;
 }
 
 #root nav.navbar#n1{
