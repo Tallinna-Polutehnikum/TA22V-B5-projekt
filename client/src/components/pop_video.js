@@ -36,18 +36,7 @@ useEffect(() => {
     if (button) {
       button.click();
       console.log('btn was');
-    } else {
-      // If the button is not found immediately, start the interval for repeated search.
-      const intervalId = setInterval(() => {
-        const button = document.querySelector('.lty-playbtn');
-        if (button) {
-          button.click();
-          console.log('btn loading');
-          clearInterval(intervalId);
-        }
-      }, 1000);
-      return () => clearInterval(intervalId);
-    }
+    } else {console.log('btn loading');}    // think it always there, if not -> 28-03-2025
   }
 }, [isOpen]);
 
