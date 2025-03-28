@@ -31,4 +31,5 @@ Terminal 2: npm run cypress:open    OR    npm run cypress:run (headless mode)
 
 ⁐⁐server⁐⁐
 cd server
-node .\runSeed.js
+npm install
+node .\database\runSeed.js    OR    npm seed

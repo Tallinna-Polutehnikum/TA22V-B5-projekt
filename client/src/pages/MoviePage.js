@@ -3,22 +3,23 @@ import { useParams } from 'react-router-dom';
 import './MoviePage.css';
 
 const MoviePage = () => {
-    const { id } = useParams();
 
     useEffect(() => {
-      const mainElement = document.querySelector('.main');
-      if (mainElement) {
-        mainElement.style.width = '100%';
-        mainElement.style.padding = '0';
-      }
-      return () => {
-        // Recovery the original styles when unmounting
+        const mainElement = document.querySelector('.main');
         if (mainElement) {
-          mainElement.style.width = 'clamp(1px, var(--mw), var(--mmw))';
-          mainElement.style.padding = '20px';
-        }
-      };
-    }, []);
+            mainElement.style.width = '100%';
+            mainElement.style.padding = '0';}
+
+        return () => { // Recovery the original styles when unmounting
+            if (mainElement) {
+                mainElement.style.width = 'clamp(1px, var(--mw), var(--mmw))';
+                mainElement.style.padding = '20px';}
+    };},[]);
+
+    const { id } = useParams();
+
+
+
   
     return (
         <div className="movie-container">

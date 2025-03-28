@@ -1,11 +1,7 @@
-// mb popup login https://minutemailer.github.io/react-popup/
+// popup login?   https://minutemailer.github.io/react-popup/
+// component page https://npmjs.com/package/react-lite-youtube-embed
 
-// Scrolling an image carousel - smooth https://react.dev/learn/manipulating-the-dom-with-refs#scrolling-an-image-carousel
-
-// https://www.perplexity.ai/search/privet-kak-eshche-mozhno-nazva-7pzJUdz8R86AYy_EQiTGXg?0=d&2=d
-// https://minutemailer.github.io/react-popup/
-
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
@@ -21,18 +17,42 @@ const St = {
     justifyContent: 'center',
     backgroundColor: 'rgba(0,0,0, 0.6)',
     cursor: 'pointer',
+    zIndex: 10,
   },
   pVideo: {
     border: 'none',
     // mb some rounded edges? Check figma
     // padding: '10px', borderRadius: '10px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
-    minWidth: '40%',
-    minHeight: '40vh',
+    minWidth: '50%',
   },
 };
 
 const PopupVideo = ({ videoId, isOpen, onClose }) => {
+
+useEffect(() => {
+  if (isOpen) {
+    const button = document.querySelector('.lty-playbtn');
+    if (button) {
+      button.click();
+      console.log('btn was');
+    } else {
+      // If the button is not found immediately, start the interval for repeated search.
+      const intervalId = setInterval(() => {
+        const button = document.querySelector('.lty-playbtn');
+        if (button) {
+          button.click();
+          console.log('btn loading');
+          clearInterval(intervalId);
+        }
+      }, 1000);
+      return () => clearInterval(intervalId);
+    }
+  }
+}, [isOpen]);
+
+
+
   if (!isOpen) return null;
 
 
@@ -42,6 +62,7 @@ const PopupVideo = ({ videoId, isOpen, onClose }) => {
         <LiteYouTubeEmbed id={videoId} title="trailer" />
       </div>
     </div>
+    
   );
 };
 
