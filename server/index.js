@@ -11,6 +11,7 @@ import { fileURLToPath } from 'url';
 import { createDatabase } from './database/dbmk.js';
 import logger from './utils/logger.js';
 
+import routeHandler from './middleware/BadRouteMiddleware.js'
 import errorHandler from './middleware/ErrorHandlingMiddleware.js';
 
 const models = initModels(sequelize);
@@ -22,6 +23,7 @@ app.use(express.static(path.resolve(path.dirname(fileURLToPath(import.meta.url))
 app.use(fileUpload({}));
 app.use('/api', router);
 
+//app.use(routeHandler);
 //the last middleware in chain
 app.use(errorHandler);
 

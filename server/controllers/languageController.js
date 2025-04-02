@@ -9,6 +9,19 @@ class LanguageController {
     languageRepository = new LanguageRepository(Language);
     languageService = new LanguageService(this.languageRepository);
 
+    async getOne(req, res, next) {
+        try {
+            const { id } = req.body;
+            if (!id) { return next(ApiError.badRequest('id is not found')) }; //returns HTTP error
+            const language = await this.languageService.getLanguage(id);
+
+            return res.json(language);    
+        } catch (error) {
+            next(error);
+        }
+
+    };
+
     async getAll(req, res, next) {
         try {
             const languages = await this.languageService.getLanguages();
@@ -17,18 +30,6 @@ class LanguageController {
         } catch (error) {
             next (error);
         }
-
-
-
-    };
-
-    async getOne(req, res) {
-
-        const { id } = req.body;
-        if (!id) { return next(ApiError.badRequest('id is not found')) }; //returns HTTP error
-        const language = await this.languageService.getLanguage(id);
-
-        return res.json(language);
 
     };
 

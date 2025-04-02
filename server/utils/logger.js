@@ -2,7 +2,7 @@ import winston from 'winston';
 import path from 'path';
 
 const logger = winston.createLogger({
-  level: 'info', // Logging messages with the level "info" and higher
+  level: 'debug', // Logging messages with the level "info" and higher
   format: winston.format.combine(
     winston.format.colorize({
       all: true
@@ -14,9 +14,11 @@ const logger = winston.createLogger({
     })
   ),
   transports: [
-    new winston.transports.Console(), // Outputs logs to the console
-    new winston.transports.File({ filename: 'logs/app.log' }) // Writes logs to the file
+    new winston.transports.Console({level: 'info'}), // Outputs logs to the console
+    new winston.transports.File({ filename: 'logs/app.log', level: 'http' }) // Writes logs to the file
   ]
 });
+
+//logger.add(consol).add(file);
 
 export default logger;
