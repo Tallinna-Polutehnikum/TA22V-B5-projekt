@@ -9,9 +9,9 @@ return (
     {cardData && cardData.length > 0 ? (
       cardData.map((data, index) => (
         <Card key={index} style={{ width: '18rem' }} className='mx-0 mx-sm-2'>
-          <Button href={data.link} variant="link" style={{padding: 0}}>
+          <Card.Link href={data.link}>
             <Card.Img variant="top" src={data.image} />
-          </Button>
+          </Card.Link>
           <Card.Body>
             <Card.Title>
               <p>

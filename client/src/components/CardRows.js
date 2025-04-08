@@ -23,11 +23,12 @@ return (
     {cardData && cardData.length > 0 ? (
       cardData.map((data, index) => (
         <Col xs={12} sm={6} md={6} lg={4} xxl={3} key={index}>
-          <Card style={{ width: '100%' }} className='mb-4'>
+          {/* <CardGroup></CardGroup> */}
+          <Card bg='light' text='dark' style={{ width: '100%' }} className='mb-4'>
 
-            <Button href={data.link} variant="link" style={{padding: 0}}>
+            <Card.Link href={data.link}>
               <Card.Img variant="top" src={data.image} />
-            </Button>
+            </Card.Link>
             
             <Card.Body>
             <div>

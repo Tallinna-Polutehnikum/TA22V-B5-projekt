@@ -8,7 +8,7 @@ const MoviesPage = () => {
             image: 'https://picsum.photos/id/1006/300/200',
             title: 'Hills',
             link: '/movie/:1',
-            description: 'they walk among hills or mountains. Many persons walk alone ...',
+            description: 'they walk among hills or mountains. Many persons walk alone ...they walk among hills or mountains. Many persons walk alone ...',
         },
         {
             image: 'https://picsum.photos/id/1018/300/200',
