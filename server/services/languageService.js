@@ -55,6 +55,7 @@ export default class LanguageService {
 
     } catch (error) {
       logger.error(error);
+      throw (error);
     }
 
   }
