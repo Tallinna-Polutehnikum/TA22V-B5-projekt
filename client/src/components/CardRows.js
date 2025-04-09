@@ -14,8 +14,8 @@ const CardRows = ({ cardData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const videoId = 'dQw4w9WgXcQ';
 
-  const handleOpen = () => {  setIsOpen(true);  };
-  const handleClose = () =>{  setIsOpen(false); };
+  const openPop = () => {  setIsOpen(true);  };
+  const closePop = () =>{  setIsOpen(false); };
 
 
 return (
@@ -31,23 +31,19 @@ return (
             </Card.Link>
             
             <Card.Body>
-            <div>
 
               <Card.Title>
-                <p>
                   <a href={data.link} className="link-body-emphasis link-underline-opacity-0-hover">
                     {data.title}
                   </a>
-                </p>
               </Card.Title>
 
               <Card.Text>{data.description}</Card.Text>
-
-            </div>
+              
             <div className="d-grid gap-2">
               <ButtonGroup vertical>
 
-                <Button onClick={handleOpen} variant="outline-info" size="sm" className="fs-6">          {/* try smth lk: https://react-bootstrap.netlify.app/docs/components/modal#vertically-centered */}
+                <Button onClick={openPop} variant="outline-info" size="sm" className="fs-6">          {/* try smth lk: https://react-bootstrap.netlify.app/docs/components/modal#vertically-centered */}
                   <FontAwesomeIcon icon={faPlay} /> Trailer 
                 </Button>
                 
@@ -64,7 +60,7 @@ return (
     ) : (
       <p>Loading...</p> // not corrupts anymore if waiting data
     )}
-  <PopupVideo videoId={videoId} isOpen={isOpen} onClose={handleClose} />
+  <PopupVideo videoId={videoId} isOpen={isOpen} onClose={closePop} />
   </Row>
 );
 };

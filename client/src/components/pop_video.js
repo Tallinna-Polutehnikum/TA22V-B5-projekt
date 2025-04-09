@@ -30,13 +30,26 @@ const St = {
 
 const PopupVideo = ({ videoId, isOpen, onClose }) => {
 
+
 useEffect(() => {
   if (isOpen) {
     const button = document.querySelector('.lty-playbtn');
+
     if (button) {
       button.click();
       console.log('btn was');
     } else {console.log('btn loading');}    // think it always there, if not -> 28-03-2025
+    
+    // Handling ESC
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape'){  onClose();  console.log('ESC'); }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () =>{   // rem Handler on unmount component
+      document.removeEventListener('keydown', handleKeyDown); 
+    };
+
   }
 }, [isOpen]);
 
