@@ -18,19 +18,28 @@ const MoviePage = () => {
 
     const { id } = useParams();
 
+    // const favMovImages = [
+    //     'https://picsum.photos/id/976/5000/500',  // 5000x2901
+    //     'https://picsum.photos/id/696/200/300'    // 4310x2864
+    // ];
+
 
 
   
     return (
         <div className="movie-container">
-            <div className="background-section">
+
+            <div className="background-section ">
+                <div className="bg-grad"></div>
+            </div>
+            <div className="main2">
+                
                 <div className="content-section-1">
+                    <img src='https://picsum.photos/id/696/200/300' />
                     <h1 className="movie-title">
                         Movie page {id}
                     </h1>
                 </div>
-            </div>
-            <div className="main2">
                 <div className="content-section-2">
                     <div className="info-column">
                         <h2>Movie Info</h2>

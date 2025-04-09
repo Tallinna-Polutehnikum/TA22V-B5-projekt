@@ -106,12 +106,3 @@ new pages:
     
         
     in package.json added styled_components check it https://styled-components.com/showcase
-    
-
-    ASK HENRY BOUT movie/ image. could get 100% but only as fixed bkgr
-
-
-  const favMovImages = [
-    'https://picsum.photos/id/976/5000/500',  // 5000x2901
-    'https://picsum.photos/id/696/200/300'    // 4310x2864
-  ];
