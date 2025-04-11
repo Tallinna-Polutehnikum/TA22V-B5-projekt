@@ -4,18 +4,11 @@ import Card from 'react-bootstrap/Card';
 import { Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-
-import PopupVideo from '../components/pop_video';
+import BtnTrailer from './BtnTrailer';
 
 
 const CardRows = ({ cardData }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const videoId = 'dQw4w9WgXcQ';
-
-  const openPop = () => {  setIsOpen(true);  };
-  const closePop = () =>{  setIsOpen(false); };
 
 
 return (
@@ -43,9 +36,8 @@ return (
             <div className="d-grid gap-2">
               <ButtonGroup vertical>
 
-                <Button onClick={openPop} variant="outline-info" size="sm" className="fs-6">          {/* try smth lk: https://react-bootstrap.netlify.app/docs/components/modal#vertically-centered */}
-                  <FontAwesomeIcon icon={faPlay} /> Trailer 
-                </Button>
+                <BtnTrailer videoId={videoId} />
+
                 
                 <Button variant="outline-primary" size="sm" className="fs-6">
                   Showtimes
@@ -60,7 +52,6 @@ return (
     ) : (
       <p>Loading...</p> // not corrupts anymore if waiting data
     )}
-  <PopupVideo videoId={videoId} isOpen={isOpen} onClose={closePop} />
   </Row>
 );
 };

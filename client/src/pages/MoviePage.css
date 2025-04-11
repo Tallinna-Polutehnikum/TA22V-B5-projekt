@@ -1,4 +1,4 @@
-.movie-container {
+#movie-page {
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -21,27 +21,33 @@
     );
 }
 
-.content-section-1{
+#movie-hat{
     width: 100%;
     height: 500px;
-    padding: 20px;
     display: flex;
     align-items: flex-end;
 }
+#hat-text {
+    color: white;
+    margin: 20px;
+}
+#hat-text .movie-title{transform: translate(0, 12px);}
+#hat-info p{    transform: translate(2px, 0px);}
+
+#movie-hat button{
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 10px;
+}
 
 .main2 {
-    padding: 20px;
+    padding: 0 20px 20px 20px;
     margin: auto !important;
-    min-height: calc(100dvh - var(--headerH));
     width: clamp(1px, var(--mw), var(--mmw)); 
 }
 
-.movie-title {
-    color: white;
-    margin-bottom: 40px;
-}
 
-.content-section-2 {
+#movie-info {
     height: 600px;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -50,15 +56,15 @@
 
 .info-column {
     height: 100%;
-    background-color: #f5f5f5;
-    padding: 20px;
+    background-color: #444;
+    padding: 20px 0;
 }
 
-.recommendations-section {
+#actors-section {
     height: auto;
 }
 
-.recommendations-grid {
+.actors-grid {
     display: flex;
     gap: 20px;
     margin-top: 20px;
@@ -69,3 +75,18 @@
     height: 300px;
     background-color: #ddd;
 }
+
+/* Media query for small screens */
+@media (max-width: 720px) {
+    .main2 {
+      width: 100%;
+      padding: 0;
+    }
+    #root nav.navbar#n1{
+      padding: 0;
+    }
+  }
+
+  /* Need to seperate mov_info uner description */
+  /* Need to seperate mov_info uner description */
+  /* Need to seperate mov_info uner description */

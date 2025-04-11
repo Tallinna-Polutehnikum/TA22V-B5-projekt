@@ -106,3 +106,6 @@ new pages:
     
         
     in package.json added styled_components check it https://styled-components.com/showcase
+
+10-04
+    not working header.css - .nav-link:hover
