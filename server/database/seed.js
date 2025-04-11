@@ -47,26 +47,26 @@ export async function seed({ entities, db, sql }) {
     await entities.PosterType.create({ type: 'Horizontal' });
     await entities.PosterType.create({ type: 'Vertical' });
 
-    await entities.Actor.create({ first_name: 'Joe', last_name: 'Pesci' })
-    await entities.Actor.create({ first_name: 'Robert', last_name: 'De Niro' })
-    await entities.Actor.create({ first_name: 'Al', last_name: 'Pacino' })
-    await entities.Actor.create({ first_name: 'Marlon', last_name: 'Brando' })
-    await entities.Actor.create({ first_name: 'Leonardo', last_name: 'DiCaprio' })
-    await entities.Actor.create({ first_name: 'Tom', last_name: 'Hanks' })
-    await entities.Actor.create({ first_name: 'Johnny', last_name: 'Depp' })
-    await entities.Actor.create({ first_name: 'Morgan', last_name: 'Freeman' })
-    await entities.Actor.create({ first_name: 'Denzel', last_name: 'Washington' })
-    await entities.Actor.create({ first_name: 'Jack', last_name: 'Nicholson' })
-    await entities.Actor.create({ first_name: 'Harrison', last_name: 'Ford' })
-    await entities.Actor.create({ first_name: 'Clint', last_name: 'Eastwood' })
-    await entities.Actor.create({ first_name: 'Bruce', last_name: 'Willis' })
-    await entities.Actor.create({ first_name: 'Arnold', last_name: 'Schwarzenegger' })
-    await entities.Actor.create({ first_name: 'Sylvester', last_name: 'Stallone' })
-    await entities.Actor.create({ first_name: 'Michael', last_name: 'Douglas' })
-    await entities.Actor.create({ first_name: 'Richard', last_name: 'Gere' })
-    await entities.Actor.create({ first_name: 'Kevin', last_name: 'Costner' })
-    await entities.Actor.create({ first_name: 'Anthony', last_name: 'Hopkins' })
-    await entities.Actor.create({ first_name: 'Daniel', last_name: 'Day-Lewis' })
+    await entities.Actor.create({ firstName: 'Joe', lastName: 'Pesci' })
+    await entities.Actor.create({ firstName: 'Robert', lastName: 'De Niro' })
+    await entities.Actor.create({ firstName: 'Al', lastName: 'Pacino' })
+    await entities.Actor.create({ firstName: 'Marlon', lastName: 'Brando' })
+    await entities.Actor.create({ firstName: 'Leonardo', lastName: 'DiCaprio' })
+    await entities.Actor.create({ firstName: 'Tom', lastName: 'Hanks' })
+    await entities.Actor.create({ firstName: 'Johnny', lastName: 'Depp' })
+    await entities.Actor.create({ firstName: 'Morgan', lastName: 'Freeman' })
+    await entities.Actor.create({ firstName: 'Denzel', lastName: 'Washington' })
+    await entities.Actor.create({ firstName: 'Jack', lastName: 'Nicholson' })
+    await entities.Actor.create({ firstName: 'Harrison', lastName: 'Ford' })
+    await entities.Actor.create({ firstName: 'Clint', lastName: 'Eastwood' })
+    await entities.Actor.create({ firstName: 'Bruce', lastName: 'Willis' })
+    await entities.Actor.create({ firstName: 'Arnold', lastName: 'Schwarzenegger' })
+    await entities.Actor.create({ firstName: 'Sylvester', lastName: 'Stallone' })
+    await entities.Actor.create({ firstName: 'Michael', lastName: 'Douglas' })
+    await entities.Actor.create({ firstName: 'Richard', lastName: 'Gere' })
+    await entities.Actor.create({ firstName: 'Kevin', lastName: 'Costner' })
+    await entities.Actor.create({ firstName: 'Anthony', lastName: 'Hopkins' })
+    await entities.Actor.create({ firstName: 'Daniel', lastName: 'Day-Lewis' })
 
 
 
@@ -112,8 +112,8 @@ export async function seed({ entities, db, sql }) {
     });
 
 
-    // add SQL-querry for unique_name in table language
-    // await db.query(`ALTER TABLE language ADD CONSTRAINT unique_name UNIQUE (name(255))`);
+    // add SQL-querry for uniqueName in table language
+    // await db.query(`ALTER TABLE language ADD CONSTRAINT uniqueName UNIQUE (name(255))`);
 
     console.log('Seed script executed successfully.');
   } catch (error) {

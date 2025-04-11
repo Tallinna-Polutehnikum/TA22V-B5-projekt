@@ -1,11 +1,13 @@
 import DataBaseError from "../error/DataBaseError.js";
 import validateId from "../middleware/ValidationIdMiddleware.js";
 import validateName from "../middleware/ValidationNameMiddleware.js";
+import Language from "../models/language.js";
+import LanguageRepository from "../repositories/languageRepository.js";
 import logger from "../utils/logger.js";
 
 export default class LanguageService {
-  constructor(repository) {
-    this.languageRepository = repository;
+  constructor() {
+    this.languageRepository = new LanguageRepository(Language);
   }
 
   async getLanguage(id) {

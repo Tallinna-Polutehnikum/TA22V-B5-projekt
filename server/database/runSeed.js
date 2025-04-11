@@ -13,7 +13,7 @@ async function runSeed() {
         const models = initModels(sequelize);
 
         // // 3. очистка базы данных
-        // await sequelize.drop(); // Удаляет все таблицы
+        await sequelize.drop(); // Удаляет все таблицы
 
         // const sql = fs.readFileSync('./database/Apollo1_2024_11_23.sql', 'utf8'); // Читаем SQL-скрипт из файла
         // //console.log('console' + sql);
