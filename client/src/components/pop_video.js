@@ -61,7 +61,7 @@ useEffect(() => {
   return (
     <div style={St.pModal} onClick={onClose}>
       <div style={St.pVideo} onClick={(e) => e.stopPropagation()}>
-        <LiteYouTubeEmbed id={videoId} title="trailer" />
+        <LiteYouTubeEmbed id={videoId} title="trailer" poster="default" />
       </div>
     </div>
     

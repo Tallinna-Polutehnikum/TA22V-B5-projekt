@@ -12,11 +12,6 @@ input::placeholder {
     opacity: 1; /* Firefox */
 }
 
-/* changing the color palette */
-:root {
-    --bs-dark: #171717;
-    --bs-dark-rgb: 23,23,23;
-}
 
 div input.text-white{
     margin: 0px 0px 12px 10px;

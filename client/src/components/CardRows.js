@@ -16,7 +16,7 @@ return (
     {cardData && cardData.length > 0 ? (
       cardData.map((data, index) => (
         <Col xs={12} sm={6} md={6} lg={4} xxl={3} key={index}>
-          {/* <CardGroup></CardGroup> */}
+          {/* <CardGroup></CardGroup> Why_it_columns*/}
           <Card bg='light' text='dark' style={{ width: '100%' }} className='mb-4'>
 
             <Card.Link href={data.link}>

@@ -4,7 +4,19 @@
   --mmw: 1440px;  /* main max width  */
   --headerH: 43px;
   --footerH: 240px;
+
+  clr4: #00757D;
+  clr3: #22AAAA;
+  clr2: #7EC7CF;
+  clr1: #EDE7D5;
+  /* Find bit darker palette*/
 } 
+
+/* change the color palette */
+:root {
+  /* --bs-dark: #000;
+  --bs-dark-rgb: 23,23,23; */
+}
 
 /* some pallets:
 https://colorhunt.co */

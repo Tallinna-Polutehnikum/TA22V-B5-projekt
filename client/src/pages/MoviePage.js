@@ -20,6 +20,9 @@ const MoviePage = () => {
 
   const videoId = 'dQw4w9WgXcQ';
   const { id } = useParams();
+  const St = {
+    backgroundImage: "url('https://picsum.photos/id/976/1920/500')",
+  }
 
   // const favMovImages = [
   //   'https://picsum.photos/id/976/5000/500',  // 5000x2901
@@ -32,7 +35,7 @@ const MoviePage = () => {
   return (
     <div className="movie-page">
 
-      <div className="background-section ">
+      <div className="background-section " style={St}>
         <div className="bg-grad"></div>
       </div>
       <div className="main2">
