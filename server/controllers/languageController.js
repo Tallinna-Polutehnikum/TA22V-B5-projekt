@@ -1,8 +1,6 @@
-// import {Request, Response} from 'express';
 import ApiError from "../error/ApiError.js";
-import Language from "../models/language.js";
-import LanguageRepository from "../repositories/languageRepository.js";
 import LanguageService from "../services/languageService.js";
+import logger from "../utils/logger.js";
 
 let languageService
 
@@ -16,7 +14,8 @@ class LanguageController {
 
     async getOne(req, res, next) {
         try {
-            const { id } = req.body;
+            const { id } = req.params['id']; //req.body;
+            console.log(id)
             if (!id) {
                 return next(ApiError.badRequest('id is not found')) //returns HTTP error
             }; 
@@ -24,20 +23,21 @@ class LanguageController {
 
             return res.json(language);    
         } catch (error) {
+            console.log(error)
             next(error);
         }
 
     };
 
-    async getAll(res, next) {
-        console.log(`languages getall ${languageService}`)
+    async getAll(req, res, next) {
+        // console.log(`languages getall ${languageService}`)
         try {
             const languages = await languageService.getLanguages();
             
             return res.json(languages);
         } catch (error) {
-            console.log(error)
-            // next (error);
+            logger.error(error)
+            next (error);
         }
 
     };
