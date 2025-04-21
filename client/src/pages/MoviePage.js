@@ -49,7 +49,7 @@ const MoviePage = () => {
             </h1>
             <div id="hat-info">
               <p>x min | genre, genre, genres | rating</p>
-              {/* разделять |x,x,x| разделять | разделять  */}
+              {/* {dur} | []map(,)=x,x,x | {rating}   */}
             </div>
 
             <div className="hat-buttons">
@@ -66,8 +66,41 @@ const MoviePage = () => {
 
         <div id="movie-info">
           <div className="info-column">
-            <h2>Movie Info</h2>
-            <p>Movie Details ID: {id}</p>
+            <ul>
+              <li>
+              <strong>rezzis</strong>
+              <p>namename</p>
+              </li>
+
+              <li>
+              <strong>produss</strong>
+              <p>namename</p>
+              </li>
+
+              <li>
+              <strong>aasta</strong>
+              <p>1999</p>
+              </li>
+              
+              <li>
+              <strong>duratio</strong>
+              <p>(dur)</p>
+              </li>
+              
+              <li>
+              <strong>genres</strong>
+              <br />
+              <a href="#">genre</a>, 
+              <a href="#">genre</a>, 
+              <a href="#">genre</a> {/* font-weight: 300;     /* display: inline-flex; */}
+              </li>
+              
+              <li>
+              <strong>rating</strong>
+              <p>(rating)</p>
+              </li>
+              
+            </ul>
           </div>
           <div className="info-column">
             <h2>Description</h2>
