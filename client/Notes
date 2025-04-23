@@ -109,3 +109,7 @@ new pages:
 
 10-04
     not working header.css - .nav-link:hover
+
+20-04
+    const listItems = people.map(person => <li>{person}</li>);
+    https://react.dev/learn/rendering-lists

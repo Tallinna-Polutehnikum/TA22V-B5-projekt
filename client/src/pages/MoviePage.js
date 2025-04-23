@@ -48,7 +48,7 @@ const MoviePage = () => {
               Movie page {id}
             </h1>
             <div id="hat-info">
-              <p>x min | genre, genre, genres | rating</p>
+              <span>x min | genre, genre, genres | rating</span>
               {/* {dur} | []map(,)=x,x,x | {rating}   */}
             </div>
 
@@ -68,43 +68,42 @@ const MoviePage = () => {
           <div className="info-column">
             <ul>
               <li>
-              <strong>rezzis</strong>
-              <p>namename</p>
+              <strong>Rezzis</strong><br/>
+              <span>namename</span>
               </li>
 
               <li>
-              <strong>produss</strong>
-              <p>namename</p>
+              <strong>Country</strong><br/>
+              <span>namename</span>
               </li>
 
               <li>
-              <strong>aasta</strong>
-              <p>1999</p>
+              <strong>Year</strong><br/>
+              <span>1999</span>
+              </li>
+          
+              <li>
+              <strong>Duration</strong><br/>
+              <span>137 minutes</span>
               </li>
               
               <li>
-              <strong>duratio</strong>
-              <p>(dur)</p>
+              <strong>Genres</strong><br/>
+              <span><a href="#">genre</a>, <a href="#">genre</a>, <a href="#">genre</a> {/* map(, ) /* font-weight: 300;     /* display: inline-flex; */}
+              </span>
               </li>
               
               <li>
-              <strong>genres</strong>
-              <br />
-              <a href="#">genre</a>, 
-              <a href="#">genre</a>, 
-              <a href="#">genre</a> {/* font-weight: 300;     /* display: inline-flex; */}
-              </li>
-              
-              <li>
-              <strong>rating</strong>
-              <p>(rating)</p>
+              <strong>Rating</strong><br/>
+              <span>(rating)</span>
               </li>
               
             </ul>
           </div>
-          <div className="info-column">
-            <h2>Description</h2>
-            <p>Full movie description...</p>
+          <div className="desc-column">
+            <div className="desc-text"> 
+              <span>Aute aute cillum adipisicing laboris sit cupidatat exercitation pariatur minim mollit nostrud quis duis excepteur consequat cupidatat id et excepteur deserunt duis velit labore do nisi ad dolore qui do eiusmod reprehenderit ullamco laborum non ullamco excepteur aliqua in amet deserunt in dolore sint tempor consectetur ea culpa tempor anim sit est Lorem voluptate ex sunt non ullamco ut ipsum quis mollit et veniam dolore incididunt nulla minim fugiat mollit commodo ex ullamco exercitation aliquip in ex et culpa occaecat pariatur id quis mollit qui nostrud do aliqua duis aliqua tempor do commodo incididunt aliqua dolore occaecat tempor aliqua nulla magna officia sint tempor magna anim qui irure ipsum qui</span>
+            </div>
           </div>
         </div>
 
