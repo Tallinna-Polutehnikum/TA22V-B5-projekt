@@ -8,7 +8,6 @@ export default class LanguageRepository {
 
     constructor(model) {
         this.model = model;
-        console.log("create language model")
 
         if (!LanguageRepository.cacheState) {    //if null
             LanguageRepository.cacheState = LanguageRepository.cache;

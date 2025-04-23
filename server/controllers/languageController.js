@@ -14,12 +14,12 @@ class LanguageController {
 
     async getOne(req, res, next) {
         try {
-            const { id } = req.params['id']; //req.body;
+            const { id } = req.params; //req.body;
             console.log(id)
             if (!id) {
                 return next(ApiError.badRequest('id is not found')) //returns HTTP error
             }; 
-            const language = await this.languageService.getLanguage(id);
+            const language = await languageService.getLanguage(id);
 
             return res.json(language);    
         } catch (error) {

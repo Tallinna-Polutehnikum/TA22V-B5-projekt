@@ -18,7 +18,7 @@ export default class LanguageService {
       const language = await this.languageRepository.findByPk(id);
       if (!language) throw DataBaseError.getMessage(`language not found`);
 
-      logger.info(`${language.name} returned`);
+      logger.info(`${language} returned`);
       return language;
 
     } catch (error) {
@@ -52,7 +52,7 @@ export default class LanguageService {
       const language = await this.languageRepository.create(name);
       if (!language) throw DataBaseError.getMessage(`language not been created`);
 
-      logger.info(`${language.name} added to DB`);
+      logger.info(`${language} added to DB`);
       return language;
 
     } catch (error) {

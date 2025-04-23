@@ -1,5 +1,5 @@
 import { where } from "sequelize";
-import logger from "../utils/logger";
+import logger from "../utils/logger.js";
 
 export default class ActorRepository {
 
@@ -66,50 +66,50 @@ export default class ActorRepository {
 
     }
 
-    async update(model_id, newName) {   //have not response
+    // async update(model_id, newName) {   //have not response
 
-        const actor = await this.model.findByPk(model_id);
-        logger.info(`DB query: update actor ${model_id} with ${newName})`);
+    //     const actor = await this.model.findByPk(model_id);
+    //     logger.info(`DB query: update actor ${model_id} with ${newName})`);
 
-        if (actor) {
+    //     if (actor) {
 
-            await actor.set({ name: newName });
-            await actor.save();
+    //         await actor.set({ name: newName });
+    //         await actor.save();
 
-            this.cache.set(actor.id, actor);
-            logger.info(`actor with id ${model_id} updated successfuly`)
-            return actor;
+    //         this.cache.set(actor.id, actor);
+    //         logger.info(`actor with id ${model_id} updated successfuly`)
+    //         return actor;
 
-        } else {
-            logger.error(`actor not found`)
-        }
+    //     } else {
+    //         logger.error(`actor not found`)
+    //     }
 
-    }
+    // }
 
-    async delete(id) {  //may have response
+    // async delete(id) {  //may have response
 
-        const actor = await this.model.findByPk(id);
-        logger.info(`DB query: delete(${id})`);
+    //     const actor = await this.model.findByPk(id);
+    //     logger.info(`DB query: delete(${id})`);
 
-        if (actor) {
-            const numDestroyedRows = await actor.destroy();
-            this.cache.delete(id);
+    //     if (actor) {
+    //         const numDestroyedRows = await actor.destroy();
+    //         this.cache.delete(id);
 
-            if (numDestroyedRows > 0) {
-                logger.info(`actor with id ${id} deleted successfuly`);
-                return true;
+    //         if (numDestroyedRows > 0) {
+    //             logger.info(`actor with id ${id} deleted successfuly`);
+    //             return true;
 
-            } else {
-                logger.error(`actor with id ${id} not been deleted`);
-                return false;
+    //         } else {
+    //             logger.error(`actor with id ${id} not been deleted`);
+    //             return false;
 
-            }
+    //         }
 
-        }
+    //     }
 
-        return false;    //confirms deletion (for bussines logic)
+    //     return false;    //confirms deletion (for bussines logic)
 
-    }
+    // }
 
     async clearCache(key) {
         switch (key) {

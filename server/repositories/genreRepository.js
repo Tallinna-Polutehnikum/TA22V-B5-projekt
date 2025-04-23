@@ -1,5 +1,5 @@
 import { where } from "sequelize";
-import logger from "../utils/logger";
+import logger from "../utils/logger.js";
 
 export default class GenreRepository {
 
