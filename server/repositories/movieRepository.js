@@ -1,5 +1,5 @@
 import { where } from "sequelize";
-import logger from "../utils/logger";
+import logger from "../utils/logger.js";
 
 export default class MovieRepository {
 
@@ -26,7 +26,7 @@ export default class MovieRepository {
             return this.cache.get(id);
         }
 
-        logger.info(`DB query: findById(${id})`);
+        logger.info(`Movie query: findById(${id})`);
 
         const movie = await this.model.findByPk(id);
         if (movie) { // if not null, not undefined, not a ''...
@@ -43,7 +43,7 @@ export default class MovieRepository {
             return this.cache.get('all');
         }
 
-        logger.info(`DB query: findAll`);
+        logger.info(`Movie query: findAll`);
 
         const movies = await this.model.findAll();
         if (movies) {
@@ -56,7 +56,7 @@ export default class MovieRepository {
     //{title, desc, year, langId, sublangId}
     async create(data) {
 
-        logger.info(`DB query: create(${data})`);    
+        logger.info(`Movie query: create(${data})`);    
         const movie = await this.model.create(data);
         // this.cache.set(movie.id, movie);
         //console.log(`${nameOf(movie)} added`);
@@ -69,7 +69,7 @@ export default class MovieRepository {
     async update(model_id, data) {   //have not response
         
         const movie = await this.model.findByPk(model_id);
-        logger.info(`DB query: update movie ${model_id} with ${data})`);
+        logger.info(`Movie query: update movie ${model_id} with ${data})`);
 
         if (movie) {
             Object.keys(data).forEach(key => {
@@ -90,7 +90,7 @@ export default class MovieRepository {
     async delete(id) {  //may have response
 
         const movie = await this.model.findByPk(id);
-        logger.info(`DB query: delete(${id})`);
+        logger.info(`Movie query: delete(${id})`);
 
         if (movie) {
             const numDestroyedRows = await movie.destroy();

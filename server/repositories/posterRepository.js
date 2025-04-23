@@ -26,7 +26,7 @@ export default class PosterRepository {
             return this.cache.get(id);
         }
 
-        logger.info(`DB query: findById(${id})`);
+        logger.info(`Poster query: findById(${id})`);
 
         const poster = await this.model.findByPk(id);
         if (poster) { // if not null, not undefined, not a ''...
@@ -43,7 +43,7 @@ export default class PosterRepository {
             return this.cache.get('all');
         }
 
-        logger.info(`DB query: findAll`);
+        logger.info(`Poster query: findAll`);
 
         const posters = await this.model.findAll();
         if (posters) {
@@ -56,7 +56,7 @@ export default class PosterRepository {
 
     async create(data) {
 
-        logger.info(`DB query: create(${data})`);
+        logger.info(`Poster query: create(${data})`);
 
         const poster = await this.model.create(data);
         // this.cache.set(poster.id, poster);
@@ -69,7 +69,7 @@ export default class PosterRepository {
     async update(model_id, newName) {   //have not response
 
         const poster = await this.model.findByPk(model_id);
-        logger.info(`DB query: update poster ${model_id} with ${newName})`);
+        logger.info(`Poster query: update poster ${model_id} with ${newName})`);
 
         if (poster) {
 
@@ -89,7 +89,7 @@ export default class PosterRepository {
     async delete(id) {  //may have response
 
         const poster = await this.model.findByPk(id);
-        logger.info(`DB query: delete(${id})`);
+        logger.info(`Poster query: delete(${id})`);
 
         if (poster) {
             const numDestroyedRows = await poster.destroy();

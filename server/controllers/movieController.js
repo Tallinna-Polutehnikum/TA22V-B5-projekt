@@ -7,9 +7,41 @@ import Movie from "../models/movie.js";
 import Poster from "../models/poster.js";
 import PosterType from "../models/posterType.js";
 import MoviePoster from "../models/moviePoster.js";
+import MovieService from "../services/movieService.js";
+import logger from "../utils/logger.js";
 
+let movieService
 
 class MovieController {
+    
+    constructor(){
+        movieService = new MovieService()
+    }
+    
+    async getOne(req, res, next) {
+        try {
+            const { id } = req.params
+            const movie = await Movie.findByPk(id);
+            return res.json(movie)
+        } catch (e) {
+            next(ApiError.badRequest(e.message))
+        }
+    };
+    
+    async getAll(req, res, next) {
+        try {
+            const movies = await this.movieService.getMovies();
+            
+            return res.json(movies);
+        } catch (error) {
+            logger.error(error)
+            next (error);
+        }
+        // const movies = await Movie.findAll()
+        // return res.json(movies)
+        // //можно добавить фильтрацию
+    };
+    
     async create(req, res, next) {
         try {
             const { title, description, year, languageId, sublanguageId } = req.body
@@ -70,23 +102,7 @@ class MovieController {
             console.log("Object creation failed")
             next(ApiError.badRequest(e.message))
         }
-    };
-
-    async getAll(req, res) {
-        const movies = await Movie.findAll()
-        return res.json(movies)
-        //можно добавить фильтрацию
-    };
-
-    async getOne(req, res, next) {
-        try {
-            const { id } = req.params
-            const movie = await Movie.findByPk(id);
-            return res.json(movie)
-        } catch (e) {
-            next(ApiError.badRequest(e.message))
-        }
-    };
+    };   
 
     async change(req, res, next) {  //need change responces
         try {

@@ -26,7 +26,7 @@ export default class GenreRepository {
             return this.cache.get(id);
         }
 
-        logger.info(`DB query: findById(${id})`);
+        logger.info(`Genre query: findById(${id})`);
 
         const genre = await this.model.findByPk(id);
         if (genre) { // if not null, not undefined, not a ''...
@@ -43,7 +43,7 @@ export default class GenreRepository {
             return this.cache.get('all');
         }
 
-        logger.info(`DB query: findAll`);
+        logger.info(`Genre query: findAll`);
 
         const genres = await this.model.findAll();
         if (genres) {
@@ -56,7 +56,7 @@ export default class GenreRepository {
 
     async create(data) {
 
-        logger.info(`DB query: create(${data})`);
+        logger.info(`Genre query: create(${data})`);
 
         const genre = await this.model.create(data);
         // this.cache.set(genre.id, genre);
@@ -69,7 +69,7 @@ export default class GenreRepository {
     async update(model_id, newName) {   //have not response
 
         const genre = await this.model.findByPk(model_id);
-        logger.info(`DB query: update genre ${model_id} with ${newName})`);
+        logger.info(`Genre query: update genre ${model_id} with ${newName})`);
 
         if (genre) {
 
@@ -89,7 +89,7 @@ export default class GenreRepository {
     async delete(id) {  //may have response
 
         const genre = await this.model.findByPk(id);
-        logger.info(`DB query: delete(${id})`);
+        logger.info(`Genre query: delete(${id})`);
 
         if (genre) {
             const numDestroyedRows = await genre.destroy();

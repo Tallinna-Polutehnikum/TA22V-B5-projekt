@@ -26,7 +26,7 @@ export default class ActorRepository {
             return this.cache.get(id);
         }
 
-        logger.info(`DB query: findById(${id})`);
+        logger.info(`Actor query: findById(${id})`);
 
         const actor = await this.model.findByPk(id);
         if (actor) { // if not null, not undefined, not a ''...
@@ -43,7 +43,7 @@ export default class ActorRepository {
             return this.cache.get('all');
         }
 
-        logger.info(`DB query: findAll`);
+        logger.info(`Actor query: findAll`);
 
         const actors = await this.model.findAll();
         if (actors) {
@@ -56,7 +56,7 @@ export default class ActorRepository {
 
     async create(data) {
 
-        logger.info(`DB query: create(${data})`);
+        logger.info(`Actor query: create(${data})`);
 
         const actor = await this.model.create(data);
         // this.cache.set(actor.id, actor);

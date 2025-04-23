@@ -13,3 +13,9 @@ Need to get from db:
     users
     permissions
     
+
+    Modify DB:
+    change rating 
+    add rezhiser (director)
+    add country
+    add duration

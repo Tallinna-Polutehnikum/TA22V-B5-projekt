@@ -26,7 +26,7 @@ export default class LanguageRepository {
             return this.cache.get(id);
         }
 
-        logger.info(`DB query: findById(${id})`);
+        logger.info(`Language query: findById(${id})`);
 
         const language = await this.model.findByPk(id);
         if (language) { // if not null, not undefined, not a ''...
@@ -43,7 +43,7 @@ export default class LanguageRepository {
             return this.cache.get('all');
         }
 
-        logger.info(`DB query: findAll`);
+        logger.info(`Language query: findAll`);
 
         const languages = await this.model.findAll();
         if (languages) {
@@ -57,7 +57,7 @@ export default class LanguageRepository {
 
     async create(data) {
 
-        logger.info(`DB query: create(${data})`);
+        logger.info(`Language query: create(${data})`);
 
         const language = await this.model.create(data);
         // this.cache.set(language.id, language);
@@ -70,7 +70,7 @@ export default class LanguageRepository {
     async update(model_id, newName) {   //have not response
 
         const language = await this.model.findByPk(model_id);
-        logger.info(`DB query: update language ${model_id} with ${newName})`);
+        logger.info(`Language query: update language ${model_id} with ${newName})`);
 
         if (language) {
 
@@ -90,7 +90,7 @@ export default class LanguageRepository {
     async delete(id) {  //may have response
 
         const language = await this.model.findByPk(id);
-        logger.info(`DB query: delete(${id})`);
+        logger.info(`Language query: delete(${id})`);
 
         if (language) {
             const numDestroyedRows = await language.destroy();
