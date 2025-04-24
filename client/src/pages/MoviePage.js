@@ -88,8 +88,11 @@ const MoviePage = () => {
               </li>
               
               <li>
-              <strong>Genres</strong><br/>
-              <span><a href="#">genre</a>, <a href="#">genre</a>, <a href="#">genre</a> {/* map(, ) /* font-weight: 300;     /* display: inline-flex; */}
+              <strong>Genres</strong>
+              <span><br/>
+              <a href="/movies/Action">Action</a>,&nbsp;
+              <a href="/movies/Family">Family</a>,&nbsp;
+              <a href="/movies/genres">genres</a> {/* map(, ) /* font-weight: 300;     /* display: inline-flex; */}
               </span>
               </li>
               
