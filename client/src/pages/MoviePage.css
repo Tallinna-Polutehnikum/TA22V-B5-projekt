@@ -64,6 +64,9 @@
 
 .info-column ul{ padding-left: 0; }
 .info-column a{ color: white; }
+.info-column a::after {content: ', ';}
+.info-column a:last-child::after {content: '';}
+
 .main2 strong{ font-size: large; }
 .desc-text{ width: 560px; }
 

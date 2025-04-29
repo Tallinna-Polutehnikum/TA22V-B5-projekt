@@ -30,7 +30,7 @@ class MovieController {
     
     async getAll(req, res, next) {
         try {
-            const movies = await this.movieService.getMovies();
+            const movies = await movieService.getMovies();
             
             return res.json(movies);
         } catch (error) {

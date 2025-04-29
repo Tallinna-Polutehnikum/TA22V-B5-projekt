@@ -91,24 +91,24 @@ export async function seed({ entities, db, sql }) {
     //   image: Buffer.from('https://picsum.photos/id/1018/300/200')
     // });
 
-    // await entities.Movie.create({
-    //   title: 'Man & dog',
-    //   rating: 3,
-    //   description: 'What is the saying man and his dog?',
-    //   year: '2018-09-15',
-    //   languageId: 3,
-    //   sublangId: 3,
-    //   image: Buffer.from('https://picsum.photos/id/1012/300/200')
-    // });
+    await entities.Movie.create({
+      title: 'Man & dog',
+      rating: 3,
+      description: 'Aute aute cillum adipisicing laboris sit cupidatat exercitation pariatur minim mollit nostrud quis duis excepteur consequat cupidatat id et excepteur deserunt duis velit labore do nisi ad dolore qui do eiusmod reprehenderit ullamco laborum non ullamco excepteur aliqua in amet deserunt in dolore sint tempor consectetur ea culpa tempor anim sit est Lorem voluptate ex sunt non ullamco ut ipsum quis mollit et veniam dolore incididunt nulla minim fugiat mollit commodo ex ullamco exercitation aliquip in ex et culpa occaecat pariatur id quis mollit qui nostrud do aliqua duis aliqua tempor do commodo incididunt aliqua dolore occaecat tempor aliqua nulla magna officia sint tempor magna anim qui irure ipsum qui',
+      year: '2018-09-15',
+      languageId: 3,
+      sublangId: 3,
+      image: 'server/static/fight-dogs.jpg' //'../static/fight-dogs.jpg' 
+    });
 
     await entities.Movie.create({
       title: 'Capybura',
       rating: 1,
-      description: 'They are excellent swimmers',
+      description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.',
       year: '1998-08-01',
       languageId: 3,
       sublangId: 2,
-      image: insertMovie('https://animals.pibig.info/uploads/posts/2023-10/1696535989_animals-pibig-info-p-zabavnie-kapibari-pinterest-18.jpg')
+      image: 'server/static/navalil-1.jpg'
     });
 
 

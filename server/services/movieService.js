@@ -33,13 +33,13 @@ export default class MovieService {
 
       try {
         const movies = await this.movieRepository.findAll({
-            include: [
-                {model: Actor},
-                {model: Genre},
-                {model: Poster},
-                {model: Language, as: 'original'},
-                {model: Language, as: 'subtitle'}
-            ]     
+            // include: [       // was made for related tables
+            //     {model: Actor},
+            //     {model: Genre},
+            //     {model: Poster},
+            //     {model: Language, as: 'original'},
+            //     {model: Language, as: 'subtitle'}
+            // ]     
         });
         if (!movies) throw DataBaseError.getMessage(`movies not found`);
 

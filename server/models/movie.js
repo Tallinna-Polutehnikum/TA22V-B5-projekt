@@ -46,7 +46,7 @@ export default class Movie extends Model {
       field: 'sublang_id'
     },
     image: {
-      type: DataTypes.BLOB,
+      type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {

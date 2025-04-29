@@ -22,14 +22,15 @@ npm install
 npm start
 npm test
 
+⁐⁐server⁐⁐
+cd server
+npm install
+npm run dev
+node .\database\runSeed.js    OR    npm run seed
+
 
 ⁐⁐Cypress tests⁐⁐
 cd client
 npm install
 Terminal 1: npm start
 Terminal 2: npm run cypress:open    OR    npm run cypress:run (headless mode)
-
-⁐⁐server⁐⁐
-cd server
-npm install
-node .\database\runSeed.js    OR    npm seed
