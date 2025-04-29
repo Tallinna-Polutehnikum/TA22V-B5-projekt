@@ -77,9 +77,7 @@ const MoviePage = () => {
             <div>
               {movie ? (
                 <h1>{movie.title}</h1>
-              ) : (
-                <p>{movie ? 'Фильм с id=1 не найден' : 'Loading...'}</p>
-              )}
+              ) : ( <p>'Loading...'</p> )}
             </div>
             
             <div id="hat-info">
@@ -103,15 +101,17 @@ const MoviePage = () => {
           <div className="info-column">
             <ul>
               <li>
-              <strong>Rezzis</strong><br/>
-              <span>namename</span>
-              </li>
-
-              <li>
               <strong>Year</strong><br/>
               <span>1999</span>
               </li>
           
+              <li>
+              <strong>Year</strong><br/>
+              {movie ? (
+                <span>{movie.year}</span>
+              ) : ( <p>'Loading...'</p> )}
+              </li>
+
               <li>
               <strong>Duration</strong><br/>
               <span>137 minutes</span>
@@ -119,11 +119,9 @@ const MoviePage = () => {
               
               <li>
               <strong>Genres</strong>
-
               <span><br/>
               { genresParsed }
-              </span>{/* map(, ) /* font-weight: 300;     /* display: inline-flex; */}
-
+              </span>{/* font-weight: 300;     /* display: inline-flex; */}
               </li>
 
             
@@ -142,6 +140,11 @@ const MoviePage = () => {
           <div className="desc-column">
             <div className="desc-text"> 
               <span>Aute aute cillum adipisicing laboris sit cupidatat exercitation pariatur minim mollit nostrud quis duis excepteur consequat cupidatat id et excepteur deserunt duis velit labore do nisi ad dolore qui do eiusmod reprehenderit ullamco laborum non ullamco excepteur aliqua in amet deserunt in dolore sint tempor consectetur ea culpa tempor anim sit est Lorem voluptate ex sunt non ullamco ut ipsum quis mollit et veniam dolore incididunt nulla minim fugiat mollit commodo ex ullamco exercitation aliquip in ex et culpa occaecat pariatur id quis mollit qui nostrud do aliqua duis aliqua tempor do commodo incididunt aliqua dolore occaecat tempor aliqua nulla magna officia sint tempor magna anim qui irure ipsum qui</span>
+              
+              {movie ? (
+                <span>{movie.description}</span>
+              ) : ( <p>'Loading...'</p> )}
+              
             </div>
           </div>
         </div>
