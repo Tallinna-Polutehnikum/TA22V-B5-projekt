@@ -8,24 +8,28 @@ const CarouselCard = () => {
     // const [cardData, setCardData] = useState([]);        // Card data waitnig placeholder
     const cardData = [
         {
+            id: 1,
             image: 'https://picsum.photos/id/1006/300/200',
             title: 'Hills',
             link: '/movie/:1',
             description: 'they walk among hills or mountains. Many persons walk alone ...',
         },
         {
+            id: 2,
             image: 'https://picsum.photos/id/1018/300/200',
             title: 'Norway',
             link: '/movie/:1',
             description: 'Bures boahtin. Hello (General greeting)',
         },
         {
+            id: 3,
             image: 'https://picsum.photos/id/1012/300/200',
             title: 'Man & dog',
             link: '/movie/:1',
             description: 'What is the saying man and his dog?',
         },
         {
+            id: 4,
             image: 'https://th.bing.com/th/id/R.df900ae69fa7b8d3158c0e49bc7b06c1?rik=1voe9ibJ7UUv8Q',
             title: 'Capybara',
             link: '/movie/:1',
@@ -37,17 +41,26 @@ const CarouselCard = () => {
 
     return (
         <div className="CarouselCard">
-            <ul className="CarouselCard-content">
-                
-                {logos.map((index) => (
-                    <Card1 cardData={cardData} />
-                ))}
-                {logos.map((index) => (
-                    <Card1 cardData={cardData} />
-                ))}
-            </ul>
+        <ul className="CarouselCard-content">
+            {cardData.map((card) => (
+            <Card1 key={card.id} cardData={card} />
+            ))}
+        </ul>
         </div>
     );
+    // return (
+    //     <div className="CarouselCard">
+    //         <ul className="CarouselCard-content">
+                
+    //             {logos.map((index) => (
+    //                 <Card1 cardData={cardData} />
+    //             ))}
+    //             {logos.map((index) => (
+    //                 <Card1 cardData={cardData} />
+    //             ))}
+    //         </ul>
+    //     </div>
+    // );
 };
 
 export default CarouselCard;

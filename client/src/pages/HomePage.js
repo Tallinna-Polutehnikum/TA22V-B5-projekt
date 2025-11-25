@@ -10,7 +10,7 @@ const HomePage = () => {
         'https://picsum.photos/id/1006/1200/400',
         'https://picsum.photos/id/1018/1200/400',
         'https://picsum.photos/id/1012/1200/400',
-        'https://picsum.photos/id/1001/1200/400'
+        'https://picsum.photos/id/1001/1200/200'
     ];
     const cardData = [
         {

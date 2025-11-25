@@ -18,7 +18,7 @@ import './App.css';
 
 function App() {
     
-    return (
+    return (  
       <Router>
         <Header />
         <main className="main">
@@ -38,7 +38,7 @@ function App() {
               <Route path="MovieEdit" element={<MovieEdit />} />
             </Route>
           </Routes>
-          {/* <a href="https://reactjs.org">Learn React</a> */}
+          <a href="https://reactjs.org">Learn React</a>
         </main>
         <Footer />
       </Router>
